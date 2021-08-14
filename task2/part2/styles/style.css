@@ -306,6 +306,16 @@ h2 {
   padding-left: 40px;
   height: 2.6em;
 }
+.feedback-form__textarea {
+  box-sizing: border-box;
+  resize: none;
+  border: 1px solid #c4c4c4;
+  padding: 12px;
+  color: #5e5e5e;
+  font-size: 18px;
+  width: 100%;
+
+}
 .feedback-form__input > .input-icon {
   width: 24px;
   height: 24px;
@@ -314,4 +324,12 @@ h2 {
   left: 10px;
   top: 11px;
   position: absolute;
+}
+
+.feedback-form__submit-button {
+  width: 120px;
+  height: 40px;
+  margin-left: auto;
+  border: none;
+  cursor: pointer;
 }

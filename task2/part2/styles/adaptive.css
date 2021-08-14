@@ -128,12 +128,18 @@
   .section-heading {
     justify-content: center;
   }
+  .section-text {
+    text-align: center;
+  }
   .items-list {
     justify-content: center;
   }
-
   .section-heading > h1 {
     font-size: 18px;
+  }
+  .feedback-form__submit-button{
+    margin: 0;
+    align-self: center;
   }
 }
 
