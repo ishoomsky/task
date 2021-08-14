@@ -1,0 +1,103 @@
+@media all and (max-width: 1230px) {
+  header {
+    grid-template-columns: auto minmax(0, 960px) auto;
+  }
+  main {
+    grid-template-columns: auto minmax(0, 960px) auto;
+  }
+  .header__search {
+    width: 250px;
+  }
+}
+
+@media all and (max-width: 995px) {
+  header {
+    grid-template-columns: auto minmax(0, 720px) auto;
+  }
+  main {
+    grid-template-columns: auto minmax(0, 720px) auto;
+  }
+  .header__search {
+    width: 200px;
+    font-size: 14px;
+  }
+  .nav__nav-item {
+    font-size: 14px;
+    padding: 0.7em 1.2em;
+  }
+  .header-content {
+    gap: 32px;
+  }
+
+  .search__icon {
+    top: 6px;
+  }
+}
+
+@media all and (max-width: 760px) {
+  body {
+    min-width: 350px;
+    grid-template-rows: auto;
+  }
+  header {
+    padding: 2vh 0;
+    grid-template-columns: auto minmax(0, 700px) auto;
+  }
+  .header-content {
+    grid-area: header-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .header__search {
+    font-size: 18px;
+    background-color: #ffffff;
+    width: 70%;
+    margin: 0;
+    position: relative;
+  }
+
+  aside {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .sidebar__book-rating {
+    width: 224px;
+  }
+  .sidebar-heading {
+    width: 224px;
+    font-size: 18px;
+  }
+
+  main {
+    grid-template-columns: auto minmax(0, 700px) auto;
+  }
+  .main-content {
+    grid-area: main-content;
+    display: grid;
+    grid-template-areas:
+      ". article ."
+      ". aside .";
+    grid-template-columns: auto minmax(0, 700px) auto;
+    grid-gap: 20px;
+  }
+
+  .search__input {
+    height: 2em;
+  }
+
+  .section-heading {
+    justify-content: center;
+  }
+  .items-list {
+    justify-content: center;
+  }
+
+  .section-heading > h1 {
+    font-size: 18px;
+  }
+}

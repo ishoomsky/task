@@ -1,0 +1,247 @@
+/* GRID */
+body {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main";
+  grid-template-rows: 11vh;
+  grid-gap: 3vh;
+
+  font-family: "Roboto";
+  font-size: 14px;
+  color: #2a2a2a;
+}
+
+header {
+  grid-area: header;
+  background-color: #c4c4c4;
+  display: grid;
+  grid-template-areas: ". header-content .";
+  grid-template-columns: auto minmax(0, 1200px) auto;
+}
+
+main {
+  grid-area: main;
+  /* background-color: green; */
+  display: grid;
+  grid-template-areas: ". main-content .";
+  grid-template-columns: auto minmax(0, 1200px) auto;
+}
+
+.main-content {
+  grid-area: main-content;
+  display: grid;
+  grid-template-areas: "aside article";
+  grid-template-columns: 224px 1fr;
+  grid-gap: 20px;
+}
+
+aside {
+  grid-area: aside;
+  /* background-color: orange; */
+}
+
+article {
+  grid-area: article;
+  /* background-color: olive; */
+}
+
+.header-content {
+  grid-area: header-content;
+  display: flex;
+  align-items: center;
+  gap: 62px;
+}
+/* GRID */
+
+/* HEADER */
+.header-content__logo {
+  width: 122px;
+  height: 48px;
+  background-color: darkblue;
+}
+.header-content__nav {
+  display: flex;
+}
+.nav__nav-item {
+  font-size: 18px;
+  padding: 0.7em 1.4em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.nav__nav-item--active {
+  background-color: #989898;
+}
+
+.header__search {
+  font-size: 18px;
+  background-color: #ffffff;
+  width: 468px;
+  margin-left: auto;
+  position: relative;
+}
+.search__input {
+  box-sizing: border-box;
+  border: none;
+  border-radius: 2px;
+  background: #ffffff !important;
+  outline: none;
+  width: 100%;
+  color: #5e5e5e;
+  font-size: inherit;
+  padding-left: 50px;
+  height: 2.6em;
+}
+.search__icon {
+  position: absolute;
+  top: 12px;
+  left: 17px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: gray;
+}
+/* HEADER */
+
+/* BOOKS RATING component */
+.books-rating__books-list {
+  width: 100%;
+  max-width: 224px;
+  display: flex;
+  flex-direction: column;
+}
+.books-rating__books-list > :nth-child(n + 1):not(:last-child) {
+  border-bottom: 1px solid #acacac;
+}
+.books-list__list-item {
+  height: 48px;
+  padding-left: 17px;
+  display: flex;
+  background-color: #e5e5e5;
+}
+/* BOOKS RATING component */
+
+/* NEWS component */
+.news__news-list {
+  width: 100%;
+  max-width: 224px;
+  display: flex;
+  flex-direction: column;
+}
+.news-list__news-row {
+  height: 109px;
+  padding-left: 17px;
+  display: flex;
+  background-color: #e5e5e5;
+}
+/* NEWS component */
+
+/* Common elements */
+.sidebar-heading {
+  width: 100%;
+  max-width: 207px;
+  height: 48px;
+  padding-left: 17px;
+  display: flex;
+  align-items: center;
+  background-color: #acacac;
+  font-size: 18px;
+}
+
+/* section heading */
+.section-heading {
+  height: 41px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+}
+.section-heading > h1,
+h2 {
+  font-size: 24px;
+  white-space: nowrap;
+}
+.section-heading__underline {
+  height: 41px;
+  width: 224px;
+  position: absolute;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+/* underlined text */
+.text-underlined {
+  text-decoration: underline;
+}
+
+/* book list */
+.items-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.items-list__list-item {
+  width: 224px;
+}
+.list-item__image {
+  width: 224px;
+  height: 288px;
+  background-color: #e1e1e1;
+}
+.list-item__description {
+  height: 48px;
+  display: flex;
+  flex-direction: column;
+  background-color: #c4c4c4;
+}
+/* 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+}
+td {
+  background-color: gray;
+}
+
+.rated-book__column-description {
+  display: flex;
+  padding: 13px 8px;
+}
+
+.column-description__column-description-text {
+  padding-left: 17px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+.column-description-text__title {
+  font-size: 22px;
+  font-weight: 600;
+}
+.column-description-text__author {
+  color: #5c5c5c;
+  font-size: 16px;
+  font-weight: 500;
+} */
+
+.rated-books {
+  display: grid;
+  grid-template-areas:
+    "rated-books-headers"
+    "rated-books-rows";
+}
+.rated-books-headers {
+  display: grid;
+  grid-template-columns: 5.6fr 1.7fr 2.2fr;
+  grid-template-areas: "rated-books-header-description rated-books-header-year rated-books-header-rating";
+}
+
+.rated-books-row {
+  display: grid;
+  grid-template-columns: 5.6fr 1.7fr 2.2fr;
+  grid-template-areas: "rated-books-header-description rated-books-header-year rated-books-header-rating";
+}

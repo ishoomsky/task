@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .app-form {
+      display: grid; 
+      grid-template-columns: 500px;
+    }
+    .app-input {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- iframe -->
+  <iframe src="https://www.w3schools.com" width="500px" height="300px"></iframe>
+  <!-- form elements -->
+  <form class="app-form">
+
+      <div class="app-input">
+        <label for="type-button">Input type <b>button</b> example: </label>
+        <input type="button" value="button">
+      </div>
+
+      <div class="app-input">
+        <label for="type-checkbox">Input type <b>checkbox</b> example: </label>
+        <input id="type-checkbox" type="checkbox">
+      </div>
+
+      <div class="app-input">
+        <label for="type-color">Input type <b>color</b> example: </label>
+        <input id="type-color" type="color">
+      </div>
+
+      <div class="app-input">
+        <label for="type-date">Input type <b>date</b> example: </label>
+        <input id="type-date" type="date">
+      </div>
+
+      <div class="app-input">
+        <label for="type-datetime-local">Input type <b>datetime-local</b> example: </label>
+        <input id="type-datetime-local" type="datetime-local">
+      </div>
+
+      <fieldset class="app-input">
+        <label for="type-email">Input type <b>email</b> example: </label>
+        <input id="" type="email">
+      </fieldset>
+      
+      <div class="app-input">
+        <label for="type-file">Input type <b>file</b> example: </label>
+        <input id="" type="file">
+      </div>
+
+      <div class="app-input">
+        <label for="type-hidden">Input type <b>hidden</b> example: </label>
+        <input id="" type="hidden">
+      </div>
+
+      <div class="app-input">
+        <label for="type-image">Input type <b>image</b> example: </label>
+        <input id="" type="image" src="https://mdn.mozillademos.org/files/2917/fxlogo.png" width="25px">
+      </div>
+
+      <div class="app-input">
+        <label for="type-month">Input type <b>month</b> example: </label>
+        <input id="" type="month">
+      </div>
+
+      <div class="app-input">
+        <label for="type-number">Input type <b>number</b> example: </label>
+        <input id="type-number" type="number">
+      </div>
+
+      <div class="app-input">
+        <label for="type-password">Input type <b>password</b> example: </label>
+        <input id="type-password" type="password">
+      </div>
+
+      <div class="app-input">
+        <label for="type-radio">Input type <b>radio</b> example: </label>
+        <input id="type-radio" type="radio">
+      </div>
+
+      <div class="app-input">
+        <label for="type-range">Input type <b>range</b> example: </label>
+        <input id="type-range" type="range">
+      </div>
+
+      <div class="app-input">
+        <label for="type-reset">Input type <b>reset</b> example: </label>
+        <input id="type-reset" type="reset">
+      </div>
+
+      <div class="app-input">
+        <label for="type-search">Input type <b>search</b> example: </label>
+        <input id="type-search" type="search">
+      </div>
+
+      <div class="app-input">
+        <label for="type-submit">Input type <b>submit</b> example: </label>
+        <input id="type-submit" type="submit" value="submit">
+      </div>
+
+      <div class="app-input">
+        <label for="type-tel">Input type <b>tel</b> example: </label>
+        <input id="type-tel" type="tel">
+      </div>
+
+      <div class="app-input">
+        <label for="type-text">Input type <b>text</b> example: </label>
+        <input id="" type="text">
+      </div>
+
+      <div class="app-input">
+        <label for="type-text">Input type <b>time</b> example: </label>
+        <input id="type-text" type="time">
+      </div>
+
+      <div class="app-input">
+        <label for="type-url">Input type <b>url</b> example: </label>
+        <input id="type-url" type="url" list="url-list">
+        <datalist id="url-list">
+          <option value="http://www.google.com" label="google">
+          <option value="http://www.tut.by" label="tut">
+        </datalist>
+      </div>
+
+      <div class="app-input">
+        <label for="type-week">Input type <b>week</b> example: </label>
+        <input id="type-week" type="week">
+      </div>
+  </form>
+  <!-- html5 validation -->
+  <form>
+    <label>
+      Email input with validation: 
+      <input name="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+    </label>
+    <button>Submit</button>
+  </form>
+</body>
+</html>
