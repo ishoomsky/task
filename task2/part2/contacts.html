@@ -15,9 +15,13 @@
       <div class="header-content">
         <div class="header-content__logo"></div>
         <nav class="header-content__nav">
-          <div class="nav__nav-item">Книги</div>
-          <div class="nav__nav-item nav__nav-item--active">Рейтинг книг</div>
-          <div class="nav__nav-item">Контакты</div>
+          <div class="nav__nav-item"><a href="./index.html">Книги</a></div>
+          <div class="nav__nav-item">
+            <a href="./rating-books.html">Рейтинг книг</a>
+          </div>
+          <div class="nav__nav-item nav__nav-item--active">
+            <a href="./contacts.html">Контакты</a>
+          </div>
         </nav>
         <div class="header__search">
           <input class="search__input" type="text" />
@@ -55,19 +59,24 @@
               <div class="section-heading__underline"></div>
             </div>
             <p class="section-text">Оставьте ваш отзыв о портале BookSpace</p>
-            <form class="feedback-form">
-              <div class="feedback-form__input">
+            <form class="page-form">
+              <div class="page-form__input">
                 <input placeholder="Ваше имя" type="text" />
                 <div class="input-icon"></div>
               </div>
-              <div class="feedback-form__input">
+              <div class="page-form__input">
                 <input placeholder="Ваш Email" type="text" />
                 <div class="input-icon"></div>
               </div>
-              <div class="feedback-form__textarea-wrapper">
-                <textarea class="feedback-form__textarea" name="" id="" rows="7"></textarea>
+              <div class="page-form__textarea-wrapper">
+                <textarea
+                  class="page-form__textarea"
+                  name=""
+                  id=""
+                  rows="7"
+                ></textarea>
               </div>
-              <button class="feedback-form__submit-button">Отправить</button>
+              <button class="page-form__submit-button">Отправить</button>
             </form>
           </section>
         </article>

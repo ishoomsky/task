@@ -43,6 +43,9 @@ aside {
 
 article {
   grid-area: article;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
   /* background-color: olive; */
 }
 
@@ -58,7 +61,7 @@ article {
 .header-content__logo {
   width: 122px;
   height: 48px;
-  background-color: darkblue;
+  background-color: #989898;
 }
 .header-content__nav {
   display: flex;
@@ -282,19 +285,19 @@ h2 {
   font-size: 18px;
 }
 
-.feedback-form {
+.page-form {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-.feedback-form__input {
+.page-form__input {
   font-size: 18px;
   display: flex;
   flex: 1;
   position: relative;
   border: 1px solid #c4c4c4;
 }
-.feedback-form__input > input {
+.page-form__input > input {
   box-sizing: border-box;
   border: none;
   border-radius: 2px;
@@ -306,17 +309,17 @@ h2 {
   padding-left: 40px;
   height: 2.6em;
 }
-.feedback-form__textarea {
+.page-form__textarea {
   box-sizing: border-box;
   resize: none;
   border: 1px solid #c4c4c4;
   padding: 12px;
   color: #5e5e5e;
   font-size: 18px;
+  font-family: inherit;
   width: 100%;
-
 }
-.feedback-form__input > .input-icon {
+.page-form__input > .input-icon {
   width: 24px;
   height: 24px;
   background-color: #c4c4c4;
@@ -326,10 +329,45 @@ h2 {
   position: absolute;
 }
 
-.feedback-form__submit-button {
-  width: 120px;
-  height: 40px;
+.page-form__submit-button {
+  width: 161px;
+  height: 49px;
+  font-size: 18px;
   margin-left: auto;
   border: none;
   cursor: pointer;
+  background-color: #acacac;
+}
+
+.book-description {
+  display: grid;
+  grid-template-areas: "book-description-figure book-description-text";
+  grid-template-columns: 224px 1fr;
+}
+.book-description__book-description-figure {
+  grid-area: book-description-figure;
+}
+.book-description__book-description-text {
+  grid-area: book-description-text;
+}
+.book-description-figure__image {
+  width: 100%;
+}
+
+.book-description-figure__title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.book-description-figure__author {
+  font-size: 16px;
+  font-weight: 400;
+}
+.book-description-text__heading {
+  font-size: 24px;
+}
+.book-description-text__text {
+  font-size: 18px;
+  line-height: 30px;
+  color: #595959;
 }
