@@ -148,10 +148,15 @@ article {
   font-size: 18px;
 }
 
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 /* section heading */
 .section-heading {
   height: 41px;
-  margin-bottom: 16px;
   display: flex;
   align-items: center;
 }
@@ -193,7 +198,7 @@ h2 {
   flex-direction: column;
   background-color: #c4c4c4;
 }
-
+/* rated books */
 .rated-books {
   display: grid;
   grid-template-areas:
@@ -271,4 +276,42 @@ h2 {
 }
 .rated-books-row-rating > p {
   font-size: 18px;
+}
+
+.section-text {
+  font-size: 18px;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.feedback-form__input {
+  font-size: 18px;
+  display: flex;
+  flex: 1;
+  position: relative;
+  border: 1px solid #c4c4c4;
+}
+.feedback-form__input > input {
+  box-sizing: border-box;
+  border: none;
+  border-radius: 2px;
+  background: #ffffff !important;
+  outline: none;
+  width: 100%;
+  color: #5e5e5e;
+  font-size: inherit;
+  padding-left: 40px;
+  height: 2.6em;
+}
+.feedback-form__input > .input-icon {
+  width: 24px;
+  height: 24px;
+  background-color: #c4c4c4;
+  border-radius: 50%;
+  left: 10px;
+  top: 11px;
+  position: absolute;
 }

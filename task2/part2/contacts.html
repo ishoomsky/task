@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/fonts.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/adaptive.css" />
+  </head>
+  <body class="outer-grid">
+    <header>
+      <div class="header-content">
+        <div class="header-content__logo"></div>
+        <nav class="header-content__nav">
+          <div class="nav__nav-item">Книги</div>
+          <div class="nav__nav-item nav__nav-item--active">Рейтинг книг</div>
+          <div class="nav__nav-item">Контакты</div>
+        </nav>
+        <div class="header__search">
+          <input class="search__input" type="text" />
+          <div class="search__icon"></div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="main-content">
+        <aside>
+          <div class="sidebar__book-rating">
+            <div class="sidebar-heading">Рейтинг книг</div>
+            <div class="books-rating__books-list">
+              <div class="books-list__list-item"></div>
+              <div class="books-list__list-item"></div>
+              <div class="books-list__list-item"></div>
+              <div class="books-list__list-item"></div>
+              <div class="books-list__list-item"></div>
+              <div class="books-list__list-item"></div>
+              <div class="books-list__list-item"></div>
+              <div class="books-list__list-item"></div>
+            </div>
+          </div>
+          <div class="sidebar__news">
+            <div class="sidebar-heading">Новости</div>
+            <div class="news__news-list">
+              <div class="news-list__news-row"></div>
+            </div>
+          </div>
+        </aside>
+        <article>
+          <section>
+            <div class="section-heading">
+              <h1>Контакты</h1>
+              <div class="section-heading__underline"></div>
+            </div>
+            <p class="section-text">Оставьте ваш отзыв о портале BookSpace</p>
+            <form class="feedback-form">
+              <div class="feedback-form__input">
+                <input type="text" />
+                <div class="input-icon"></div>
+              </div>
+              <div class="feedback-form__input">
+                <input type="text" />
+                <div class="input-icon"></div>
+              </div>
+
+              <textarea name="" id="" rows="7"></textarea>
+              <button>Отправить</button>
+            </form>
+          </section>
+        </article>
+      </div>
+    </main>
+  </body>
+</html>
