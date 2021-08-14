@@ -193,40 +193,6 @@ h2 {
   flex-direction: column;
   background-color: #c4c4c4;
 }
-/* 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th {
-  text-align: left;
-}
-td {
-  background-color: gray;
-}
-
-.rated-book__column-description {
-  display: flex;
-  padding: 13px 8px;
-}
-
-.column-description__column-description-text {
-  padding-left: 17px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-}
-.column-description-text__title {
-  font-size: 22px;
-  font-weight: 600;
-}
-.column-description-text__author {
-  color: #5c5c5c;
-  font-size: 16px;
-  font-weight: 500;
-} */
 
 .rated-books {
   display: grid;
@@ -238,10 +204,71 @@ td {
   display: grid;
   grid-template-columns: 5.6fr 1.7fr 2.2fr;
   grid-template-areas: "rated-books-header-description rated-books-header-year rated-books-header-rating";
+  grid-column-gap: 12px;
 }
 
 .rated-books-row {
   display: grid;
   grid-template-columns: 5.6fr 1.7fr 2.2fr;
-  grid-template-areas: "rated-books-header-description rated-books-header-year rated-books-header-rating";
+  grid-template-areas: "rated-books-row-description rated-books-row-year rated-books-row-rating";
+  grid-column-gap: 12px;
+}
+.rated-books-header-description,
+.rated-books-header-year,
+.rated-books-header-rating {
+  font-size: 18px;
+}
+.rated-books-header-description {
+  grid-area: rated-books-header-description;
+}
+.rated-books-header-year {
+  grid-area: rated-books-header-year;
+}
+.rated-books-header-rating {
+  grid-area: rated-books-header-rating;
+}
+
+.rated-books-row-description {
+  grid-area: rated-books-row-description;
+  display: flex;
+  padding: 13px 8px;
+}
+.rated-books-row-description__row-description-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding-left: 17px;
+}
+.row-description-text__title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.row-description-text__author {
+  color: #5c5c5c;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.rated-books-row-year {
+  grid-area: rated-books-row-year;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 18px;
+  padding-bottom: 1em;
+}
+.rated-books-row-rating {
+  grid-area: rated-books-row-rating;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  padding-bottom: 1em;
+}
+.rated-books-row-rating > .star-icon {
+}
+.rated-books-row-rating > p {
+  font-size: 18px;
 }
