@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/fonts.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/adaptive.css" />
+  </head>
+  <body class="outer-grid">
+    <header>
+      <div class="header-content">
+        <div class="header-content__logo"></div>
+        <nav class="header-content__nav">
+          <div class="nav__nav-item"><a href="./index.html">Книги</a></div>
+          <div class="nav__nav-item">
+            <a href="./rating-books.html">Рейтинг книг</a>
+          </div>
+          <div class="nav__nav-item">
+            <a href="./contacts.html">Контакты</a>
+          </div>
+        </nav>
+        <div class="header__search">
+          <input class="search__input" type="text" />
+          <div class="search__icon"></div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="main-content">
+        <aside>
+          <div class="sidebar__book-rating">
+            <div class="sidebar-heading">Рейтинг книг</div>
+            <div class="books-rating__books-list">
+              <div class="books-list__list-item"></div>
+              <div class="books-list__list-item"></div>
+              <div class="books-list__list-item"></div>
+              <div class="books-list__list-item"></div>
+              <div class="books-list__list-item"></div>
+              <div class="books-list__list-item"></div>
+              <div class="books-list__list-item"></div>
+              <div class="books-list__list-item"></div>
+            </div>
+          </div>
+          <div class="sidebar__news">
+            <div class="sidebar-heading">Новости</div>
+            <div class="news__news-list">
+              <div class="news-list__news-row"></div>
+            </div>
+          </div>
+        </aside>
+        <article>
+          <section>
+            <div class="section-heading">
+              <h1>Клара и солнце</h1>
+              <div class="section-heading__underline"></div>
+            </div>
+          </section>
+          <section class="book-description">
+            <figure class="book-description__book-description-figure">
+              <img
+                class="book-description-figure__image"
+                src="./assets/images/newbook1.png"
+                alt=""
+              />
+              <figcaption>
+                <h3 class="book-description-figure__title">Клара и солнце</h3>
+                <p class="book-description-figure__author">Кадзуо Исигуро</p>
+              </figcaption>
+            </figure>
+            <div class="book-description__book-description-text">
+              <h2 class="book-description-text__heading">Описание книги</h2>
+              <p class="book-description-text__text">
+                Клара совсем новая. С заразительным любопытством из-за широкого
+                окна витрины она впитывает в себя окружающий мир — случайных
+                прохожих, проезжающие машины и, конечно, живительное Солнце.
+                Клара хочет узнать и запомнить как можно больше — так она сможет
+                стать лучшей Искусственной Подругой своему будущему подростку.
+                От того, кто выберет Клару, будет зависеть её судьба. Чистый,
+                отчасти наивный взгляд на реальность, лишь слегка отличающуюся
+                от нашей собственной, — вот, что дарит новый роман Кадзуо
+                Исигуро. Каково это — любить? И можно ли быть человеком, если ты
+                не совсем человек?
+              </p>
+            </div>
+          </section>
+          <section>
+            <div class="section-heading">
+              <h2>Отзывы о книге</h2>
+              <div class="section-heading__underline"></div>
+            </div>
+            <form class="page-form">
+              <div class="page-form__input">
+                <input placeholder="Ваше имя" type="text" />
+                <div class="input-icon"></div>
+              </div>
+              <div class="page-form__textarea-wrapper">
+                <textarea
+                  class="page-form__textarea"
+                  placeholder="Оставьте ваш отзыв"
+                  name=""
+                  id=""
+                  rows="7"
+                ></textarea>
+              </div>
+              <button class="page-form__submit-button">Отправить</button>
+            </form>
+          </section>
+        </article>
+      </div>
+    </main>
+  </body>
+</html>
