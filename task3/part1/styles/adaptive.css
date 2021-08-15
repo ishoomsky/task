@@ -64,8 +64,8 @@
     top: 6px;
   }
   .star-icon {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
   }
   .book-description {
     display: grid;
@@ -208,6 +208,7 @@
   }
   .rated-books-row {
     grid-template-columns: auto 1fr 4fr auto;
+    grid-template-columns: auto 54px 4fr auto;
     grid-template-areas:
       "rated-books-row-description rated-books-row-description rated-books-row-description rated-books-row-description"
       ". rated-books-row-year rated-books-row-rating .";

@@ -7,6 +7,7 @@
 
   --white: rgba(255, 255, 255, 1);
   --gray: rgba(18, 18, 18, 0.68);
+  --gray-extra-light: rgba(249, 249, 249, 1);
   --gray-light: rgba(196, 196, 196, 1);
   --gray-dark: rgba(18, 18, 18, 0.89);
   --orange: rgba(239, 63, 10, 1);
@@ -308,6 +309,15 @@ h2 {
   grid-template-areas: "rated-books-header-description rated-books-header-year rated-books-header-rating";
   grid-column-gap: 12px;
 }
+.rated-books-rows {
+  grid-area: "rated-books-rows";
+}
+.rated-books-rows > :nth-child(odd) {
+  background-color: var(--gray-extra-light);
+}
+.rated-books-rows > :nth-child(even) {
+  background-color: var(--white);
+}
 
 .rated-books-row {
   display: grid;
@@ -322,6 +332,7 @@ h2 {
 }
 .rated-books-header-description {
   grid-area: rated-books-header-description;
+  padding: 13px 0;
 }
 .rated-books-header-year {
   grid-area: rated-books-header-year;
@@ -333,6 +344,10 @@ h2 {
   grid-area: rated-books-row-description;
   display: flex;
   padding: 13px 8px;
+}
+.rated-books-row-description__row-description-image {
+  width: 54px;
+  height: 80px;
 }
 .rated-books-row-description__row-description-text {
   display: flex;
@@ -367,8 +382,6 @@ h2 {
   gap: 12px;
   font-size: 18px;
   padding-bottom: 1em;
-}
-.rated-books-row-rating > .star-icon {
 }
 .rated-books-row-rating > p {
   font-size: 1.8rem;
