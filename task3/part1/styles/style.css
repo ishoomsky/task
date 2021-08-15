@@ -122,7 +122,6 @@ article {
   left: 17px;
   width: 22px;
   height: 22px;
-  border-radius: 50%;
   background-image: url("../assets/icons/search-icon.svg");
 }
 /* HEADER */
@@ -434,6 +433,24 @@ h2 {
   top: 11px;
   position: absolute;
 }
+.input-icon-name {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 16px;
+  height: 16px;
+  background-image: url("../assets/icons/user-icon.svg");
+  background-repeat: no-repeat;
+}
+.input-icon-email {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  width: 20px;
+  height: 16px;
+  background-image: url("../assets/icons/email-icon.svg");
+  background-repeat: no-repeat;
+}
 
 .page-form__submit-button {
   width: 161px;
@@ -442,7 +459,8 @@ h2 {
   margin-left: auto;
   border: none;
   cursor: pointer;
-  background-color: #acacac;
+  color: var(--white);
+  background-color: var(--orange);
 }
 
 .book-description {
@@ -475,5 +493,5 @@ h2 {
 .book-description-text__text {
   font-size: 1.8rem;
   line-height: 30px;
-  color: #595959;
+  color: var(--gray-dark);
 }
