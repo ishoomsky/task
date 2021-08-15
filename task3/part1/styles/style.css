@@ -27,7 +27,7 @@ body {
   grid-gap: 3vh;
   background-color: var(--body-background-color);
   font-family: "Roboto";
-  color: var(--main-font-color);
+  color: var(--gray-dark);
 }
 
 header {
@@ -470,6 +470,9 @@ h2 {
 }
 .book-description__book-description-figure {
   grid-area: book-description-figure;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .book-description__book-description-text {
   grid-area: book-description-text;
@@ -486,12 +489,51 @@ h2 {
 .book-description-figure__author {
   font-size: 1.6rem;
   font-weight: 400;
+  color: var(--gray);
 }
 .book-description-text__heading {
   font-size: 2.4rem;
 }
 .book-description-text__text {
   font-size: 1.8rem;
-  line-height: 30px;
-  color: var(--gray-dark);
+  line-height: 29px;
+  color: var(--gray);
+}
+.book-reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.book-reviews-list__book-reviews-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid var(--gray-light);
+}
+.book-reviews-item__header {
+  height: 48px;
+  padding-left: 14px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background-color: var(--orange);
+  border-bottom: 1px solid var(--gray-light);
+}
+.book-reviews-item__icon {
+  width: 16px;
+  height: 16px;
+  background-image: url("../assets/icons/user-icon-white.svg");
+}
+.book-reviews-item__name {
+  font-size: 1.8rem;
+  color: var(--white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.book-reviews-item__review-text {
+  font-size: 1.8rem;
+  color: var(--gray);
+  background-color: var(--white);
+  padding: 17px;
 }
