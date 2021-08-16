@@ -1,0 +1,219 @@
+@media all and (max-width: 1230px) {
+  header {
+    grid-template-columns: auto minmax(0, 960px) auto;
+  }
+  main {
+    grid-template-columns: auto minmax(0, 960px) auto;
+  }
+  .header__search {
+    width: 250px;
+  }
+
+  .rated-books-headers {
+    grid-template-columns: 5.6fr 1fr 2.9fr;
+  }
+
+  .rated-books-row {
+    grid-template-columns: 5.6fr 1fr 2.9fr;
+  }
+  .row-description-text__title {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .row-description-text__author {
+    color: #5c5c5c;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .rated-books-row-year {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 16px;
+    padding-bottom: 1em;
+  }
+
+  .star-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media all and (max-width: 995px) {
+  header {
+    grid-template-columns: auto minmax(0, 720px) auto;
+  }
+  main {
+    grid-template-columns: auto minmax(0, 720px) auto;
+  }
+  .header__search {
+    width: 200px;
+    font-size: 14px;
+  }
+  .nav__nav-item {
+    font-size: 14px;
+    padding: 0.7em 1.2em;
+  }
+  .header-content {
+    gap: 32px;
+  }
+
+  .search__icon {
+    top: 6px;
+  }
+  .star-icon {
+    width: 14px;
+    height: 14px;
+  }
+  .book-description {
+    display: grid;
+    grid-template-areas: "book-description-figure book-description-text";
+    grid-template-columns: 154px 1fr;
+  }
+  .book-description-figure__title {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .book-description-figure__author {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .book-description-text__heading {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .book-description-text__text {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
+
+@media all and (max-width: 760px) {
+  body {
+    min-width: 350px;
+    grid-template-rows: auto;
+  }
+  header {
+    padding: 2vh 0;
+    grid-template-columns: auto minmax(0, 700px) auto;
+  }
+  aside {
+    grid-area: aside;
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+  }
+  .header-content {
+    grid-area: header-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .header__search {
+    font-size: 18px;
+    background-color: #ffffff;
+    width: 70%;
+    margin: 0;
+    position: relative;
+  }
+
+  aside {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .sidebar__rated-books {
+    width: 224px;
+  }
+  .sidebar-heading {
+    width: 224px;
+    font-size: 18px;
+  }
+
+  main {
+    grid-template-columns: auto minmax(0, 700px) auto;
+  }
+  .main-content {
+    grid-area: main-content;
+    display: grid;
+    grid-template-areas:
+      ". article ."
+      ". aside .";
+    grid-template-columns: auto minmax(0, 700px) auto;
+    grid-gap: 50px;
+  }
+
+  .search__input {
+    height: 2em;
+  }
+
+  .section-heading {
+    justify-content: center;
+  }
+  .section-text {
+    text-align: center;
+  }
+  .items-list {
+    justify-content: center;
+  }
+  .section-heading > h1 {
+    font-size: 18px;
+  }
+  .page-form__submit-button {
+    margin: 0;
+    align-self: center;
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .page-form {
+    width: 75%;
+  }
+
+  .book-description {
+    display: grid;
+    grid-template-areas:
+      "book-description-figure"
+      "book-description-text";
+    grid-template-columns: 1fr;
+  }
+  .book-description-figure__image {
+    width: 150px;
+  }
+  .book-description__book-description-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .book-description-text__heading {
+    text-align: center;
+  }
+}
+
+@media all and (max-width: 565px) {
+  .rated-books {
+    grid-template-areas: "rated-books-rows";
+  }
+  .rated-books-headers {
+    display: none;
+  }
+  .rated-books-row {
+    grid-template-columns: auto 1fr 4fr auto;
+    grid-template-columns: auto 54px 4fr auto;
+    grid-template-areas:
+      "rated-books-row-description rated-books-row-description rated-books-row-description rated-books-row-description"
+      ". rated-books-row-year rated-books-row-rating .";
+  }
+  .page-form {
+    width: 100%;
+  }
+}
