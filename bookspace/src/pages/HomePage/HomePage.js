@@ -1,12 +1,13 @@
 import React from 'react';
 import AppPage from '../../components/AppPage';
 import HeaderContent from "../../components/HeaderContent";
-import RatedBooks from '../../components/RatedBooks/RatedBooks';
+import SidebarContent from "../../components/SidebarContent";
+
 const HomePage = () => {
   return (
     <AppPage
       headerContent={<HeaderContent />}
-      sidebarContent={<RatedBooks />}
+      sidebarContent={<SidebarContent />}
       articleContent
     />
   );

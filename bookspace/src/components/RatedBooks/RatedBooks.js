@@ -1,30 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 import colors from '../../config/colors';
 import StarIcon from '../../assets/icons/star-fill.svg';
 
-function RatedBooks() {
+const RatedBooks = ({ books }) => {
+  const items = books
+    .sort((a, b) => b.rating - a.rating)
+    .map(({ title, rating, author }) => (
+      <Item>
+        <ItemHeaderContainer>
+          <ItemTitleText>{title}</ItemTitleText>
+          <ItemRatingContainer>
+            <ItemRatingValueText>
+              {rating.toFixed(1).replace(".", ",")}
+            </ItemRatingValueText>
+            <ItemRatingIcon />
+          </ItemRatingContainer>
+        </ItemHeaderContainer>
+        <ItemFooterContainer>
+          <ItemFooterAuthorText>{author}</ItemFooterAuthorText>
+        </ItemFooterContainer>
+      </Item>
+    ));
   return (
     <Container>
       <Heading>Рейтинг книг</Heading>
-      <List>
-        <Item>
-          <ItemHeaderContainer>
-            <ItemTitleText>
-              Раньше девочки носили платье в горошек
-            </ItemTitleText>
-            <ItemRatingContainer>
-              <ItemRatingValueText>5,0</ItemRatingValueText>
-              <ItemRatingIcon />
-            </ItemRatingContainer>
-          </ItemHeaderContainer>
-          <ItemFooterContainer>
-            <ItemFooterAuthorText>Катя Майорова</ItemFooterAuthorText>
-          </ItemFooterContainer>
-        </Item>
-      </List>
+      <List>{items}</List>
     </Container>
   );
 }
@@ -32,15 +34,14 @@ function RatedBooks() {
 export default RatedBooks;
 
 const Container = styled.div`
-  padding-left: 16px;
 `;
 const Heading = styled.h3`
   width: 100%;
-  max-width: 207px;
+  max-width: 224px;
   height: 48px;
   display: flex;
   align-items: center;
-  /* padding-left: 17px; */
+  padding-left: 15px;
   background-color: ${colors.orange};
   color: ${colors.white};
   font-size: 1.8rem;
@@ -50,16 +51,17 @@ const List = styled.ul`
   max-width: 224px;
   display: flex;
   flex-direction: column;
+  background-color: ${colors.white};
   & > :nth-child(n + 1):not(:last-child) {
     border-bottom: 1px solid ${colors.grayLight};
   }
 `;
 const Item = styled.li`
-  padding: 9px;
-  /* padding-left: 16px; */
   display: flex;
   flex-direction: column;
   gap: 4px;
+  padding: 9px;
+  padding-left: 15px;
   background-color: ${colors.white};
 `;
 const ItemHeaderContainer = styled.div`
