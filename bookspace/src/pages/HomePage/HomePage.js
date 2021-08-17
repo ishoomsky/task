@@ -1,16 +1,14 @@
 import React from 'react';
 import AppPage from '../../components/AppPage';
-import AppHeader from '../../components/AppHeader';
-import AppContent from '../../components/AppContent';
-
+import HeaderContent from "../../components/HeaderContent";
+import RatedBooks from '../../components/RatedBooks/RatedBooks';
 const HomePage = () => {
   return (
-    <AppPage>
-      <AppHeader />
-      <AppContent>
-        
-      </AppContent>
-    </AppPage>
+    <AppPage
+      headerContent={<HeaderContent />}
+      sidebarContent={<RatedBooks />}
+      articleContent
+    />
   );
 }
 

@@ -5,39 +5,26 @@ import searchIcon from '../../assets/icons/search-icon.svg';
 
 import colors from '../../config/colors';
 
-function AppHeader(props) {
+function HeaderContent() {
   return (
-    <Header>
-      <HeaderContent>
-        <Logo />
-        <NavContainer>
-          <ActiveNavItem>Книги</ActiveNavItem>
-          <NavItem>Рейтинг книг</NavItem>
-          <NavItem>Контакты</NavItem>
-        </NavContainer>
-        <SearchContainer>
-          <SearchInput />
-          <SearchIcon />
-        </SearchContainer>
-      </HeaderContent>
-    </Header>
+    <Container>
+      <Logo />
+      <NavContainer>
+        <ActiveNavItem>Книги</ActiveNavItem>
+        <NavItem>Рейтинг книг</NavItem>
+        <NavItem>Контакты</NavItem>
+      </NavContainer>
+      <SearchContainer>
+        <SearchInput />
+        <SearchIcon />
+      </SearchContainer>
+    </Container>
   );
 }
 
-export default AppHeader;
+export default HeaderContent;
 
-const Header = styled.header`
-  grid-area: header;
-  background-color: ${colors.white};
-  display: grid;
-  grid-template-areas: ". header-content .";
-  grid-template-columns: auto minmax(0, 1200px) auto;
-
-  @media (max-width: 1230px) {
-    grid-template-columns: auto minmax(0, 960px) auto;
-  }
-`;
-const HeaderContent = styled.div`
+const Container = styled.div`
   grid-area: header-content;
   display: flex;
   align-items: center;
