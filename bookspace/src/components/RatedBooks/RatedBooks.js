@@ -1,40 +1,41 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
-import colors from '../../config/colors';
-import StarIcon from '../../assets/icons/star-fill.svg';
+import colors from "../../config/colors";
+import StarIcon from "../../assets/icons/star-fill.svg";
 
-const RatedBooks = ({ books }) => {
-  const items = books
-    .sort((a, b) => b.rating - a.rating)
-    .map(({ title, rating, author }) => (
-      <Item>
-        <ItemHeaderContainer>
-          <ItemTitleText>{title}</ItemTitleText>
-          <ItemRatingContainer>
-            <ItemRatingValueText>
-              {rating.toFixed(1).replace(".", ",")}
-            </ItemRatingValueText>
-            <ItemRatingIcon />
-          </ItemRatingContainer>
-        </ItemHeaderContainer>
-        <ItemFooterContainer>
-          <ItemFooterAuthorText>{author}</ItemFooterAuthorText>
-        </ItemFooterContainer>
-      </Item>
-    ));
+const RatedBooks = (props) => {
+  const { content } = props;
+
+  const sortedItems = content.sort((a, b) => b.rating - a.rating);
+  const items = sortedItems.map(({ title, rating, author }) => (
+    <Item key={title + rating + author}>
+      <ItemHeaderContainer>
+        <ItemTitleText>{title}</ItemTitleText>
+        <ItemRatingContainer>
+          <ItemRatingValueText>
+            {rating.toFixed(1).replace(".", ",")}
+          </ItemRatingValueText>
+          <ItemRatingIcon />
+        </ItemRatingContainer>
+      </ItemHeaderContainer>
+      <ItemFooterContainer>
+        <ItemFooterAuthorText>{author}</ItemFooterAuthorText>
+      </ItemFooterContainer>
+    </Item>
+  ));
   return (
     <Container>
       <Heading>Рейтинг книг</Heading>
       <List>{items}</List>
     </Container>
   );
-}
+};
 
 export default RatedBooks;
 
-const Container = styled.div`
-`;
+const Container = styled.div``;
 const Heading = styled.h3`
   width: 100%;
   max-width: 224px;
@@ -105,3 +106,14 @@ const ItemFooterAuthorText = styled.span`
   font-size: 1.2rem;
   color: ${colors.gray};
 `;
+
+RatedBooks.propTypes = {
+  content: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+      author: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    })
+  ),
+};

@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import colors from '../../config/colors';
+import colors from "../../config/colors";
 
 const AppPage = ({ headerContent, sidebarContent, articleContent }) => {
   return (
@@ -22,7 +22,7 @@ export default AppPage;
 
 const PageContainer = styled.div`
   display: grid;
-  height: 100vh;
+  /* height: 100vh; */
   grid-template-areas:
     "header"
     "main";
@@ -81,5 +81,5 @@ const ArticleContainer = styled.article`
 AppPage.propTypes = {
   headerContent: PropTypes.element.isRequired,
   sidebarContent: PropTypes.element.isRequired,
-  articleContent: PropTypes.element.isRequired,
+  // articleContent: PropTypes.element.isRequired,
 };

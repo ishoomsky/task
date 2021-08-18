@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
-import bookSpaceLogo from '../../assets/logo/book-space-logo.svg';
-import searchIcon from '../../assets/icons/search-icon.svg';
+import React from "react";
+import styled from "styled-components";
+import bookSpaceLogo from "../../assets/logo/book-space-logo.svg";
+import searchIcon from "../../assets/icons/search-icon.svg";
 
-import colors from '../../config/colors';
+import colors from "../../config/colors";
 
-function HeaderContent() {
+const HeaderContent = () => {
   return (
     <Container>
       <Logo />
@@ -15,12 +15,12 @@ function HeaderContent() {
         <NavItem>Контакты</NavItem>
       </NavContainer>
       <SearchContainer>
-        <SearchInput />
+        <SearchInput type="text" placeholder="Поиск" />
         <SearchIcon />
       </SearchContainer>
     </Container>
   );
-}
+};
 
 export default HeaderContent;
 
@@ -81,4 +81,3 @@ const SearchIcon = styled.div`
   height: 22px;
   background-image: url(${searchIcon});
 `;
-
