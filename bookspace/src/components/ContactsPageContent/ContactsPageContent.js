@@ -1,8 +1,8 @@
 import React from "react";
-import FeedBackForm from "../FeedBackForm";
+import FeedbackForm from "../FeedbackForm";
 
 const ContactsPageContent = () => {
-  return <FeedBackForm />;
+  return <FeedbackForm />;
 };
 
 export default ContactsPageContent;
