@@ -151,7 +151,7 @@ const articlesMock = [
   },
 ];
 
-const ArticleContent = () => {
+const HomePageContent = () => {
   const newBooks = booksMock.filter((book) => book.new === true);
   const bestsellersBooks = booksMock.filter((book) => book.bestseller === true);
   return (
@@ -163,4 +163,4 @@ const ArticleContent = () => {
   );
 };
 
-export default ArticleContent;
+export default HomePageContent;

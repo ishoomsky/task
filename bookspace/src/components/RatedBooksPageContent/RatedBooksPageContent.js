@@ -1,10 +1,7 @@
 import React from "react";
-import styled from "styled-components";
-
 import RatedBooks from "../RatedBooks";
-import News from "../News";
 
-const ratedBooksMock = [
+const booksMock = [
   {
     title: "Раньше девочки носили платье в горошек",
     rating: 5,
@@ -96,28 +93,39 @@ const ratedBooksMock = [
     new: true,
     year: 2021,
   },
-];
-const newsMock = [
   {
-    date: "25 мая 2021, 19:00",
-    title:
-      "Презентация новой книги Натали Ратковски “Художник. Как мыслят творческие люди” в Московском Доме Книги на Новом Арбате, 8.",
+    title: "Единственный ребенок",
+    rating: 3.8,
+    author: "Со Миэ",
+    url: "https://img4.labirint.ru/rc/4b59782d7b10708c5e36e14c23b97c51/220x340/books80/792610/cover.jpg?1614669921",
+    bestseller: true,
+    new: false,
+    year: 2021,
+  },
+  {
+    title: "Сестра звезд",
+    rating: 3.8,
+    author: "Мара Вульф",
+    url: "https://img4.labirint.ru/rc/b1992a35b81b227e81cf77aa3ff8810e/220x340/books80/792710/cover.jpg?1614749129",
+    bestseller: true,
+    new: false,
+    year: 2021,
+  },
+  {
+    title: "Клара и солнце",
+    rating: 4.8,
+    author: "Кадзуо Исигуро",
+    url: "https://img3.labirint.ru/rc/5d815161321edaef50c1f0683e58dd72/220x340/books80/796957/cover.jpg?1626431364",
+    bestseller: true,
+    new: false,
+    year: 2021,
   },
 ];
 
-const SidebarContent = () => {
-  return (
-    <SidebarContainer>
-      <RatedBooks books={ratedBooksMock} />
-      <News content={newsMock} />
-    </SidebarContainer>
-  );
+const RatedBooksPageContent = () => {
+  const sortedBooks = booksMock.sort((a, b) => b.rating - a.rating);
+
+  return <RatedBooks large books={sortedBooks} />;
 };
 
-export default SidebarContent;
-
-const SidebarContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-`;
+export default RatedBooksPageContent;
