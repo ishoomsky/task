@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+
+import HeaderNavigation from "../HeaderNavigation";
 import bookSpaceLogo from "../../assets/logo/book-space-logo.svg";
 import searchIcon from "../../assets/icons/search-icon.svg";
 
@@ -9,11 +11,7 @@ const HeaderContent = () => {
   return (
     <Container>
       <Logo />
-      <NavContainer>
-        <ActiveNavItem>Книги</ActiveNavItem>
-        <NavItem>Рейтинг книг</NavItem>
-        <NavItem>Контакты</NavItem>
-      </NavContainer>
+      <HeaderNavigation />
       <SearchContainer>
         <SearchInput type="text" placeholder="Поиск" />
         <SearchIcon />
@@ -45,24 +43,7 @@ const Logo = styled.div`
   height: 50px;
   background-image: url(${bookSpaceLogo});
 `;
-const NavContainer = styled.nav`
-  display: flex;
-`;
-const NavItem = styled.div`
-  font-size: 1.8rem;
-  padding: 0.7em 1.4em;
-  font-weight: 500;
-  text-transform: uppercase;
 
-  @media (max-width: 995px) {
-    font-size: 14px;
-    padding: 0.7em 1.2em;
-  }
-`;
-const ActiveNavItem = styled(NavItem)`
-  color: ${colors.white};
-  background-color: ${colors.orange};
-`;
 const SearchContainer = styled.div`
   width: 468px;
   margin-left: auto;
