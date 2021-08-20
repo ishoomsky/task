@@ -10,9 +10,10 @@ import StarIconOutlined from "../../assets/icons/star.svg";
 const calcStars = (rating) => {
   let result = [];
   [...Array(5)].forEach((_, index) => {
-    if (rating >= index + 1) result.push(<IconFill />);
-    if (rating < index + 1 && rating > index) result.push(<IconHalf />);
-    if (rating <= index) result.push(<IconOutlined />);
+    if (rating >= index + 1) result.push(<IconFill key={index} />);
+    if (rating < index + 1 && rating > index)
+      result.push(<IconHalf key={index} />);
+    if (rating <= index) result.push(<IconOutlined key={index} />);
   });
 
   return result;
@@ -21,8 +22,8 @@ const calcStars = (rating) => {
 const RatedBooksLarge = (props) => {
   const { books } = props;
 
-  const rows = books.map(({ title, author, url, year, rating }) => (
-    <TableRowContainer key={title + author}>
+  const rows = books.map(({ id, title, author, url, year, rating }) => (
+    <TableRowContainer key={id}>
       <TableColumnDescription>
         <TableColumnDescriptionImage src={url} />
         <TableColumnDescriptionText>
@@ -45,7 +46,7 @@ const RatedBooksLarge = (props) => {
   return (
     <Container>
       <HeadingContainer>
-        <HeadingText>Рейтинг книг</HeadingText>
+        <Heading>Рейтинг книг</Heading>
       </HeadingContainer>
       <TableContainer>
         <TableHeadersContainer>
@@ -63,15 +64,29 @@ const RatedBooksLarge = (props) => {
 
 export default RatedBooksLarge;
 
-const Container = styled.section``;
+const Container = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media (max-width: 760px) {
+    align-items: center;
+  }
+`;
+
 const HeadingContainer = styled.div`
   height: 41px;
   display: flex;
   align-items: center;
+  @media (max-width: 760px) {
+    justify-content: center;
+  }
 `;
-const HeadingText = styled.h2`
+const Heading = styled.h2`
   font-size: 2.4rem;
   white-space: nowrap;
+  @media (max-width: 760px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const TableContainer = styled.div`
@@ -79,6 +94,10 @@ const TableContainer = styled.div`
   grid-template-areas:
     "rated-books-headers"
     "rated-books-rows";
+
+  @media (max-width: 565px) {
+    grid-template-areas: "rated-books-rows";
+  }
 `;
 
 const TableHeadersContainer = styled.div`
@@ -86,6 +105,13 @@ const TableHeadersContainer = styled.div`
   grid-template-columns: 5.6fr 1.7fr 2.2fr;
   grid-template-areas: "rated-books-header-description rated-books-header-year rated-books-header-rating";
   grid-column-gap: 12px;
+
+  @media (max-width: 1230px) {
+    grid-template-columns: 5.6fr 1fr 2.9fr;
+  }
+  @media (max-width: 565px) {
+    display: none;
+  }
 `;
 
 const TableHeaderDescription = styled.div`
@@ -119,6 +145,17 @@ const TableRowContainer = styled.div`
   grid-template-columns: 5.6fr 1.7fr 2.2fr;
   grid-template-areas: "rated-books-row-description rated-books-row-year rated-books-row-rating";
   grid-column-gap: 12px;
+
+  @media (max-width: 1230px) {
+    grid-template-columns: 5.6fr 1fr 2.9fr;
+  }
+  @media (max-width: 565px) {
+    grid-template-columns: auto 1fr 4fr auto;
+    grid-template-columns: auto 54px 4fr auto;
+    grid-template-areas:
+      "rated-books-row-description rated-books-row-description rated-books-row-description rated-books-row-description"
+      ". rated-books-row-year rated-books-row-rating .";
+  }
 `;
 
 const TableColumnDescription = styled.div`
@@ -141,14 +178,19 @@ const TableColumnDescriptionTextTitle = styled.p`
   max-width: 450px;
   font-size: 2.2rem;
   font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  @media (max-width: 1230px) {
+    font-size: 18px;
+    font-weight: 600;
+  }
 `;
 const TableColumnDescriptionTextAuthor = styled.p`
   color: ${colors.grayDark};
   font-size: 1.6rem;
   font-weight: 400;
+  @media (max-width: 1230px) {
+    font-size: 14px;
+    font-weight: 400;
+  }
 `;
 
 const TableColumnYear = styled.div`
@@ -158,6 +200,9 @@ const TableColumnYear = styled.div`
   justify-content: center;
   font-size: 1.8rem;
   padding-bottom: 1em;
+  @media (max-width: 1230px) {
+    font-size: 16px;
+  }
 `;
 const TableColumnRating = styled.div`
   grid-area: rated-books-row-rating;
@@ -176,6 +221,15 @@ const IconFill = styled.div`
   height: 21px;
   background-size: cover;
   background-image: url(${StarIconFill});
+
+  @media (max-width: 1230px) {
+    width: 18px;
+    height: 18px;
+  }
+  @media (max-width: 995px) {
+    width: 14px;
+    height: 14px;
+  }
 `;
 
 const IconOutlined = styled.div`
@@ -183,6 +237,15 @@ const IconOutlined = styled.div`
   height: 21px;
   background-size: cover;
   background-image: url(${StarIconOutlined});
+
+  @media (max-width: 1230px) {
+    width: 18px;
+    height: 18px;
+  }
+  @media (max-width: 995px) {
+    width: 14px;
+    height: 14px;
+  }
 `;
 
 const IconHalf = styled.div`
@@ -190,4 +253,13 @@ const IconHalf = styled.div`
   height: 21px;
   background-size: cover;
   background-image: url(${StarIconHalf});
+
+  @media (max-width: 1230px) {
+    width: 18px;
+    height: 18px;
+  }
+  @media (max-width: 995px) {
+    width: 14px;
+    height: 14px;
+  }
 `;

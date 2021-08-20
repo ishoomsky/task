@@ -16,7 +16,7 @@ const AboutWriters = (props) => {
   return (
     <Container>
       <HeadingContainer>
-        <HeadingText>О жизни и творчестве писателей</HeadingText>
+        <Heading>О жизни и творчестве писателей</Heading>
       </HeadingContainer>
       <List>{items}</List>
     </Container>
@@ -29,15 +29,24 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  @media (max-width: 760px) {
+    align-items: center;
+  }
 `;
 const HeadingContainer = styled.div`
   height: 41px;
   display: flex;
   align-items: center;
+  @media (max-width: 760px) {
+    justify-content: center;
+  }
 `;
-const HeadingText = styled.h2`
+const Heading = styled.h2`
   font-size: 2.4rem;
   white-space: nowrap;
+  @media (max-width: 760px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const List = styled.ol``;

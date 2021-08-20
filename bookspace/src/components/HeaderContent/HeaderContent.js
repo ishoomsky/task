@@ -29,6 +29,16 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 62px;
+
+  @media (max-width: 995px) {
+    gap: 32px;
+  }
+  @media (max-width: 760px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
 `;
 const Logo = styled.div`
   width: 120px;
@@ -43,6 +53,11 @@ const NavItem = styled.div`
   padding: 0.7em 1.4em;
   font-weight: 500;
   text-transform: uppercase;
+
+  @media (max-width: 995px) {
+    font-size: 14px;
+    padding: 0.7em 1.2em;
+  }
 `;
 const ActiveNavItem = styled(NavItem)`
   color: ${colors.white};
@@ -59,6 +74,15 @@ const SearchContainer = styled.div`
 
   @media (max-width: 1230px) {
     width: 250px;
+  }
+  @media (max-width: 995px) {
+    width: 200px;
+    font-size: 14px;
+  }
+  @media (max-width: 760px) {
+    font-size: 18px;
+    width: 70%;
+    margin: 0;
   }
 `;
 const SearchInput = styled.input`
@@ -79,5 +103,16 @@ const SearchIcon = styled.div`
   left: 17px;
   width: 22px;
   height: 22px;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-image: url(${searchIcon});
+
+  @media (max-width: 995px) {
+    top: 10px;
+    width: 18px;
+    height: 18px;
+  }
+  @media (max-width: 760px) {
+    top: 13px;
+  }
 `;

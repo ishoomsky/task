@@ -34,25 +34,42 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (max-width: 760px) {
+    align-items: center;
+  }
 `;
+
 const HeadingContainer = styled.div`
   height: 41px;
   display: flex;
   align-items: center;
+  @media (max-width: 760px) {
+    justify-content: center;
+  }
 `;
 const Heading = styled.h2`
   font-size: 2.4rem;
   white-space: nowrap;
+  @media (max-width: 760px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const Text = styled.p`
   font-size: 1.8rem;
+  @media (max-width) {
+    text-align: center;
+  }
 `;
 
 const FeedbackFormContainer = styled.form`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  @media (max-width: 760px) {
+    width: 75%;
+  }
 `;
 
 const FeedbackFormInputContainer = styled.div`
@@ -86,16 +103,6 @@ const FeedbackFormTextArea = styled.textarea`
   width: 100%;
 `;
 
-const FeedbackFormIcon = styled.div`
-  width: 24px;
-  height: 24px;
-  background-color: ${colors.gray};
-  border-radius: 50%;
-  left: 10px;
-  top: 11px;
-  position: absolute;
-`;
-
 const IconName = styled.div`
   position: absolute;
   top: 14px;
@@ -124,4 +131,8 @@ const FeedbackFormSubmitButton = styled.button`
   cursor: pointer;
   color: ${colors.white};
   background-color: ${colors.orange};
+  @media (max-width: 760px) {
+    margin: 0;
+    align-self: center;
+  }
 `;

@@ -73,21 +73,37 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (max-width: 760px) {
+    align-items: center;
+  }
 `;
 const HeadingContainer = styled.div`
   height: 41px;
   display: flex;
   align-items: center;
+  @media (max-width: 760px) {
+    justify-content: center;
+  }
 `;
 const Heading = styled.h2`
   font-size: 2.4rem;
   white-space: nowrap;
+  @media (max-width: 760px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const FeedbackFormContainer = styled.form`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  @media (max-width: 760px) {
+    width: 75%;
+  }
+  @media (max-width: 565px) {
+    width: 100%;
+  }
 `;
 
 const FeedbackFormInputContainer = styled.div`
@@ -140,4 +156,9 @@ const FeedbackFormSubmitButton = styled.button`
   cursor: pointer;
   color: ${colors.white};
   background-color: ${colors.orange};
+
+  @media (max-width: 760px) {
+    margin: 0;
+    align-self: center;
+  }
 `;

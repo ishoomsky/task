@@ -38,15 +38,25 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (max-width: 760px) {
+    align-items: center;
+  }
 `;
 const HeadingContainer = styled.div`
   height: 41px;
   display: flex;
   align-items: center;
+  @media (max-width: 760px) {
+    justify-content: center;
+  }
 `;
 const Heading = styled.h2`
   font-size: 2.4rem;
   white-space: nowrap;
+  /* @media (max-width: 760px) {
+    font-size: 1.8rem;
+  } */
 `;
 
 const BookDescriptionContainer = styled.div`
@@ -54,6 +64,16 @@ const BookDescriptionContainer = styled.div`
   grid-template-areas: "book-description-figure book-description-text";
   grid-template-columns: 224px 1fr;
   grid-gap: 20px;
+
+  @media (max-width: 995px) {
+    grid-template-columns: 154px 1fr;
+  }
+  @media (max-width: 760px) {
+    grid-template-areas:
+      "book-description-text"
+      "book-description-figure";
+    grid-template-columns: 1fr;
+  }
 `;
 
 const BookDescriptionFigure = styled.figure`
@@ -61,18 +81,35 @@ const BookDescriptionFigure = styled.figure`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (max-width: 760px) {
+    align-items: center;
+  }
 `;
 const BookDescriptionFigureImage = styled.img`
   width: 100%;
+  @media (max-width: 760px) {
+    width: 150px;
+  }
 `;
 const BookDescriptionFigureTitle = styled.p`
   font-size: 2.2rem;
   font-weight: 600;
+
+  @media (max-width: 995px) {
+    font-size: 18px;
+    font-weight: 600;
+  }
 `;
 const BookDescriptionFigureAuthor = styled.p`
   font-size: 1.6rem;
   font-weight: 400;
-  color: var(--gray);
+  color: ${colors.gray};
+
+  @media (max-width: 995px) {
+    font-size: 14px;
+    font-weight: 400;
+  }
 `;
 
 const BookDescriptionTextContainer = styled.div`
@@ -81,11 +118,29 @@ const BookDescriptionTextContainer = styled.div`
 
 const BookDescriptionTextHeading = styled.h2`
   font-size: 2.4rem;
+
+  @media (max-width: 995px) {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  @media (max-width: 760px) {
+    font-size: 1.6rem;
+    text-align: center;
+  }
 `;
 const BookDescriptionTextParagraph = styled.p`
   font-size: 1.8rem;
-  line-height: 29px;
+  line-height: 2.9rem;
   color: ${colors.gray};
+
+  @media (max-width: 995px) {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+  @media (max-width: 995px) {
+    font-size: 1.4rem;
+    line-height: 2.3rem;
+  }
 `;
 
 BookDescription.propTypes = {};

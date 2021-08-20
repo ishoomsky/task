@@ -107,17 +107,17 @@ const newsMock = [
 
 const SidebarContent = () => {
   return (
-    <SidebarContainer>
+    <>
       <RatedBooks books={ratedBooksMock} />
       <News content={newsMock} />
-    </SidebarContainer>
+    </>
   );
 };
 
 export default SidebarContent;
 
-const SidebarContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-`;
+// const SidebarContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   gap: 32px;
+// `;

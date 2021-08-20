@@ -26,6 +26,12 @@ const BookReviewsListContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  @media (max-width: 760px) {
+    width: 75%;
+  }
+  @media (max-width: 565px) {
+    width: 100%;
+  }
 `;
 
 const BookReviewsItem = styled.div`

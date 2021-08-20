@@ -39,7 +39,11 @@ const RatedBooksSmall = (props) => {
 
 export default RatedBooksSmall;
 
-const Container = styled.div``;
+const Container = styled.div`
+  @media (max-width: 760px) {
+    width: 224px;
+  }
+`;
 const Heading = styled.h3`
   width: 100%;
   max-width: 224px;
@@ -50,6 +54,10 @@ const Heading = styled.h3`
   background-color: ${colors.orange};
   color: ${colors.white};
   font-size: 1.8rem;
+
+  @media (max-width: 760px) {
+    width: 224px;
+  }
 `;
 const List = styled.ul`
   width: 100%;
