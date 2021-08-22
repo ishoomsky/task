@@ -51,6 +51,7 @@ const Heading = styled.h2`
 
 const List = styled.ol``;
 const Item = styled.li`
+  margin-left: 30px;
   color: ${colors.gray};
   font-size: 1.8rem;
   line-height: 2.9rem;
