@@ -1,6 +1,6 @@
 import React from "react";
-import BooksListSection from "../BooksListSection/BooksListSection";
-import AboutWriters from "../AboutWriters/AboutWriters";
+import BooksList from "../BooksList";
+import AboutWriters from "../AboutWriters";
 const booksMock = [
   {
     id: "book-1123123",
@@ -192,8 +192,8 @@ const HomePageContent = () => {
   const bestsellersBooks = booksMock.filter((book) => book.bestseller === true);
   return (
     <>
-      <BooksListSection heading="Новые книги" books={newBooks} />
-      <BooksListSection heading="Бестселлеры" books={bestsellersBooks} />
+      <BooksList heading="Новые книги" books={newBooks} />
+      <BooksList heading="Бестселлеры" books={bestsellersBooks} />
       <AboutWriters articles={articlesMock} />
     </>
   );

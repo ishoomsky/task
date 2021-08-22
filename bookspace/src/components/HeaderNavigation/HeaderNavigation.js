@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, useRouteMatch, Link } from "react-router-dom";
+import { useRouteMatch, Link } from "react-router-dom";
 
 import styled from "styled-components";
 import colors from "../../config/colors";

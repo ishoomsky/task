@@ -1,4 +1,6 @@
 import React from "react";
+import { useRouteMatch } from "react-router-dom";
+
 import BookDescription from "../BookDescription";
 import BookReviews from "../BookReviews/BookReviews";
 
@@ -172,7 +174,11 @@ const booksMock = [
 const mockId = "book-fg56565423452345sfdsdf1123123";
 //get id from url
 const BookPageContent = () => {
-  const currentBook = booksMock.find((book) => book.id === mockId);
+  const {
+    params: { bookId },
+  } = useRouteMatch();
+
+  const currentBook = booksMock.find((book) => book.id === bookId);
   const { author, title, description, url, reviews } = currentBook;
 
   return (
