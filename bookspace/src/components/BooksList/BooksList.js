@@ -1,19 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import colors from "../../config/colors";
+import { removeIdFromRoute } from "../../helpers/utilities";
+import * as routes from "../../navigation/routes";
 
-const BooksListSection = (props) => {
+const BooksList = (props) => {
   const { heading, books } = props;
 
-  const items = books.map(({ title, author, url }) => (
+  const items = books.map(({ id, title, author, url }) => (
     <Item key={`${title}-${author}-${url}`}>
-      <ItemImage src={url} />
-      <ItemDescription>
-        <ItemDescriptionTitleText>{title}</ItemDescriptionTitleText>
-        <ItemDescriptionAuthorText>{author}</ItemDescriptionAuthorText>
-      </ItemDescription>
+      <Link to={`${removeIdFromRoute(routes.BOOK)}${id}`}>
+        <ItemImage src={url} />
+        <ItemDescription>
+          <ItemDescriptionTitleText>{title}</ItemDescriptionTitleText>
+          <ItemDescriptionAuthorText>{author}</ItemDescriptionAuthorText>
+        </ItemDescription>
+      </Link>
     </Item>
   ));
 
@@ -27,7 +32,7 @@ const BooksListSection = (props) => {
   );
 };
 
-export default BooksListSection;
+export default BooksList;
 
 const Container = styled.div`
   display: flex;
@@ -100,11 +105,11 @@ const ItemDescriptionAuthorText = styled.p`
   color: ${colors.gray};
 `;
 
-BooksListSection.defaultProps = {
+BooksList.defaultProps = {
   books: [],
 };
 
-BooksListSection.propTypes = {
+BooksList.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
