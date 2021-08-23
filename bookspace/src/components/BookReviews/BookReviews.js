@@ -9,28 +9,11 @@ import UserIcon from "../../assets/icons/user-icon.svg";
 const BookReviews = (props) => {
   const { reviews } = props;
 
-  // const [reviews, setReviews] = useState(reviewsMock);
   const [authorInput, setNameInput] = useState("");
   const [reviewTextarea, setReviewTextarea] = useState("");
 
   const handleAddReview = () => {
     console.log("add review logic");
-    // if (!authorInput || !reviewTextarea) {
-    //   window.alert("Заполните все поля формы!");
-    //   return;
-    // }
-    // const newReviews = [...reviews];
-    // newReviews.push({
-    //   author: authorInput,
-    //   review: reviewTextarea,
-    // });
-
-    // const confirm = window.confirm("Опубликовать отзыв?");
-    // if (confirm) {
-    //   setReviews(newReviews);
-    //   setNameInput("");
-    //   setReviewTextarea("");
-    // }
   };
   return (
     <Container>
@@ -93,7 +76,6 @@ const Heading = styled.h2`
     font-size: 1.8rem;
   }
 `;
-
 const FeedbackFormContainer = styled.form`
   display: flex;
   flex-direction: column;
@@ -105,7 +87,6 @@ const FeedbackFormContainer = styled.form`
     width: 100%;
   }
 `;
-
 const FeedbackFormInputContainer = styled.div`
   font-size: 1.8rem;
   display: flex;
@@ -113,7 +94,6 @@ const FeedbackFormInputContainer = styled.div`
   position: relative;
   border: 1px solid ${colors.grayLight};
 `;
-
 const FeedbackFormInput = styled.input`
   box-sizing: border-box;
   border: none;
@@ -136,7 +116,6 @@ const FeedbackFormTextArea = styled.textarea`
   font-family: inherit;
   width: 100%;
 `;
-
 const IconName = styled.div`
   position: absolute;
   top: 14px;
@@ -146,7 +125,6 @@ const IconName = styled.div`
   background-image: url(${UserIcon});
   background-repeat: no-repeat;
 `;
-
 const FeedbackFormSubmitButton = styled.button`
   width: 161px;
   height: 49px;
@@ -162,3 +140,14 @@ const FeedbackFormSubmitButton = styled.button`
     align-self: center;
   }
 `;
+
+BookReviews.propTypes = {
+  reviews: PropTypes.arrayOf(PropTypes.shape({
+    author: PropTypes.string,
+    review: PropTypes.string,
+  })),
+}
+
+BookReviews.defaultProps = {
+  reviews: [],
+}

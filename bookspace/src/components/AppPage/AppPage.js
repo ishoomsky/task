@@ -22,11 +22,12 @@ export default AppPage;
 
 const PageContainer = styled.div`
   display: grid;
-  /* height: 100vh; */
+  min-height: 101vh;
   grid-template-areas:
     "header"
     "main";
-  grid-template-rows: minmax(0, 11vh);
+  grid-template-rows: minmax(60px, 11vh);
+  /* grid-template-rows: auto; */
   grid-gap: 3vh;
   background-color: ${colors.body.grayExtraLight};
   font-family: "Roboto";
@@ -116,5 +117,4 @@ const ArticleContainer = styled.article`
 AppPage.propTypes = {
   headerContent: PropTypes.element.isRequired,
   sidebarContent: PropTypes.element.isRequired,
-  // articleContent: PropTypes.element.isRequired,
 };

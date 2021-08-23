@@ -1,33 +1,35 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import colors from "../../config/colors";
+import { removeIdFromRoute } from "../../helpers/utilities";
+import * as routes from "../../navigation/routes";
 import StarIcon from "../../assets/icons/star-fill.svg";
 
 const RatedBooksSmall = (props) => {
-  const { books, large } = props;
+  const { books } = props;
 
   const sortedItems = books.sort((a, b) => b.rating - a.rating);
-  const items = sortedItems.map(({ title, rating, author }) => (
+  const items = sortedItems.map(({ title, rating, author, id }) => (
     <Item key={title + rating + author}>
-      <ItemHeaderContainer>
-        <ItemTitleText>{title}</ItemTitleText>
-        <ItemRatingContainer>
-          <ItemRatingValueText>
-            {rating.toFixed(1).replace(".", ",")}
-          </ItemRatingValueText>
-          <ItemRatingIcon />
-        </ItemRatingContainer>
-      </ItemHeaderContainer>
-      <ItemFooterContainer>
-        <ItemFooterAuthorText>{author}</ItemFooterAuthorText>
-      </ItemFooterContainer>
+      <Link to={`${removeIdFromRoute(routes.BOOK)}${id}`}>
+        <ItemHeaderContainer>
+          <ItemTitleText>{title}</ItemTitleText>
+          <ItemRatingContainer>
+            <ItemRatingValueText>
+              {rating.toFixed(1).replace(".", ",")}
+            </ItemRatingValueText>
+            <ItemRatingIcon />
+          </ItemRatingContainer>
+        </ItemHeaderContainer>
+        <ItemFooterContainer>
+          <ItemFooterAuthorText>{author}</ItemFooterAuthorText>
+        </ItemFooterContainer>
+      </Link>
     </Item>
   ));
-  if (large) {
-    return;
-  }
 
   return (
     <Container>
@@ -105,11 +107,9 @@ const ItemRatingIcon = styled.div`
   background-image: url(${StarIcon});
   background-size: cover;
 `;
-
 const ItemFooterContainer = styled.div`
   display: flex;
 `;
-
 const ItemFooterAuthorText = styled.span`
   flex: 0.9;
   white-space: nowrap;
@@ -120,12 +120,16 @@ const ItemFooterAuthorText = styled.span`
 `;
 
 RatedBooksSmall.propTypes = {
-  content: PropTypes.arrayOf(
+  books: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      rating: PropTypes.number.isRequired,
-      author: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
+      title: PropTypes.string,
+      rating: PropTypes.number,
+      author: PropTypes.string,
+      url: PropTypes.string,
     })
   ),
+};
+
+RatedBooksSmall.defaultProps = {
+  books: [],
 };

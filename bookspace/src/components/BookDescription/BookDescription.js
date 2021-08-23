@@ -53,10 +53,7 @@ const HeadingContainer = styled.div`
 `;
 const Heading = styled.h2`
   font-size: 2.4rem;
-  white-space: nowrap;
-  /* @media (max-width: 760px) {
-    font-size: 1.8rem;
-  } */
+  text-align: center;
 `;
 
 const BookDescriptionContainer = styled.div`
@@ -143,4 +140,9 @@ const BookDescriptionTextParagraph = styled.p`
   }
 `;
 
-BookDescription.propTypes = {};
+BookDescription.propTypes = {
+  author: PropTypes.string.isRequired, 
+  title: PropTypes.string.isRequired, 
+  description: PropTypes.string.isRequired, 
+  url: PropTypes.string.isRequired
+};

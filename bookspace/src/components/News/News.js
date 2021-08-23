@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 import colors from "../../config/colors";
 
 const News = (props) => {
-  const { content } = props;
-  const newsList = content.map(({ date, title }) => (
+  const { news } = props;
+  const newsList = news.map(({ date, title }) => (
     <Item key={date + title}>
       <ItemDateText>{date}</ItemDateText>
       <ItemTitleText>{title}</ItemTitleText>
@@ -24,7 +24,6 @@ const News = (props) => {
 export default News;
 
 const Container = styled.div``;
-
 const Heading = styled.h3`
   width: 100%;
   max-width: 224px;
@@ -36,7 +35,6 @@ const Heading = styled.h3`
   color: ${colors.white};
   font-size: 1.8rem;
 `;
-
 const List = styled.ul`
   box-sizing: border-box;
   width: 100%;
@@ -48,19 +46,16 @@ const List = styled.ul`
   padding-right: 9px;
   background-color: ${colors.white};
 `;
-
 const Item = styled.ul`
   display: flex;
   flex-direction: column;
   display: flex;
   gap: 3px;
 `;
-
 const ItemDateText = styled.span`
   font-size: 1.2rem;
   color: ${colors.gray};
 `;
-
 const ItemTitleText = styled.span`
   font-size: 1.2rem;
   line-height: 1.6rem;
@@ -68,10 +63,14 @@ const ItemTitleText = styled.span`
 `;
 
 News.propTypes = {
-  content: PropTypes.arrayOf(
+  news: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       date: PropTypes.string.isRequired,
     })
   ),
+};
+
+News.defaultProps = {
+  news: [],
 };

@@ -1,15 +1,17 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 
 import searchIcon from "../../assets/icons/search-icon.svg";
 import colors from "../../config/colors";
 import StarIcon from "../../assets/icons/star-fill.svg";
 import initData from "../../assets/books.json";
+import { removeIdFromRoute } from "../../helpers/utilities";
+import * as routes from "../../navigation/routes";
 
-class componentName extends Component {
-  constructor(props) {
-    super(props);
+class Search extends Component {
+  constructor() {
+    super();
 
     this.books = initData;
     this.state = {
@@ -35,39 +37,47 @@ class componentName extends Component {
     }
     this.setState({ searchValue: inputValue });
   };
-  // componentWillMount() {}
+  handleClick = (id) => {
+    const { history } = this.props;
+    history.push(`${removeIdFromRoute(routes.BOOK)}${id}`);
+    this.setState({ searchValue: '', searchResult: [], showSearchModal: false });
+  }
 
-  // componentDidMount() {}
 
-  // componentWillReceiveProps(nextProps) {}
+  componentDidMount() {
+    console.log("componentDidMount");
+  }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate() {
+    console.log('shouldComponentUpdate');
     return true;
   }
 
-  // componentWillUpdate(nextProps, nextState) {}
-
-  // componentDidUpdate(prevProps, prevState) {}
-
-  // componentWillUnmount() {}
+  componentWillUnmount() {
+    console.log("componentWillUnmount");
+  }
 
   render() {
-    const items = this.state.searchResult?.map(({ title, rating, author }) => (
-      <Item>
-        <ItemHeaderContainer>
-          <ItemTitleText>{title}</ItemTitleText>
-          <ItemRatingContainer>
-            <ItemRatingValueText>
-              {rating.toFixed(1).replace(".", ",")}
-            </ItemRatingValueText>
-            <ItemRatingIcon />
-          </ItemRatingContainer>
-        </ItemHeaderContainer>
-        <ItemFooterContainer>
-          <ItemFooterAuthorText>{author}</ItemFooterAuthorText>
-        </ItemFooterContainer>
-      </Item>
-    ));
+    
+
+    const items = this.state.searchResult?.map(
+      ({ title, rating, author, id }) => (
+        <Item onClick={() => this.handleClick(id)}>
+          <ItemHeaderContainer>
+            <ItemTitleText>{title}</ItemTitleText>
+            <ItemRatingContainer>
+              <ItemRatingValueText>
+                {rating.toFixed(1).replace(".", ",")}
+              </ItemRatingValueText>
+              <ItemRatingIcon />
+            </ItemRatingContainer>
+          </ItemHeaderContainer>
+          <ItemFooterContainer>
+            <ItemFooterAuthorText>{author}</ItemFooterAuthorText>
+          </ItemFooterContainer>
+        </Item>
+      )
+    );
 
     return (
       <SearchContainer>
@@ -80,7 +90,7 @@ class componentName extends Component {
         <SearchIcon />
         {this.state.showSearchModal && (
           <SearchOutput>
-            {this.state.searchResult.length == 0 && (
+            {this.state.searchResult.length === 0 && (
               <Message>Ничего не найдено</Message>
             )}
             <List>{items}</List>
@@ -91,9 +101,9 @@ class componentName extends Component {
   }
 }
 
-componentName.propTypes = {};
+const SearchWithRouter = withRouter(Search);
 
-export default componentName;
+export default SearchWithRouter;
 
 const SearchContainer = styled.div`
   width: 468px;
@@ -157,6 +167,7 @@ const SearchOutput = styled.div`
   background-color: ${colors.white};
   border: 1px solid ${colors.grayLight};
   border-radius: 1px;
+  z-index: 100;
 
   @media (max-width: 1230px) {
     width: 250px;
@@ -198,6 +209,7 @@ const Item = styled.li`
   padding: 9px;
   padding-left: 15px;
   background-color: ${colors.white};
+  cursor: pointer;
 `;
 const ItemHeaderContainer = styled.div`
   display: flex;

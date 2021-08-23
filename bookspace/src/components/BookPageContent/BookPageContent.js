@@ -3,10 +3,10 @@ import { useRouteMatch } from "react-router-dom";
 
 import BookDescription from "../BookDescription";
 import BookReviews from "../BookReviews/BookReviews";
-import initData from "../../assets/books.json";
+import initBooks from "../../assets/books.json";
 
 const BookPageContent = () => {
-  const [books, setBooks] = useState(initData);
+  const [books] = useState(initBooks);
   const {
     params: { bookId },
   } = useRouteMatch();

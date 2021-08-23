@@ -39,7 +39,6 @@ const Container = styled.section`
     align-items: center;
   }
 `;
-
 const HeadingContainer = styled.div`
   height: 41px;
   display: flex;
@@ -55,14 +54,12 @@ const Heading = styled.h2`
     font-size: 1.8rem;
   }
 `;
-
 const Text = styled.p`
   font-size: 1.8rem;
   @media (max-width) {
     text-align: center;
   }
 `;
-
 const FeedbackFormContainer = styled.form`
   display: flex;
   flex-direction: column;
@@ -71,7 +68,6 @@ const FeedbackFormContainer = styled.form`
     width: 75%;
   }
 `;
-
 const FeedbackFormInputContainer = styled.div`
   font-size: 1.8rem;
   display: flex;
@@ -79,7 +75,6 @@ const FeedbackFormInputContainer = styled.div`
   position: relative;
   border: 1px solid ${colors.grayLight};
 `;
-
 const FeedbackFormInput = styled.input`
   box-sizing: border-box;
   border: none;
@@ -121,7 +116,6 @@ const IconEmail = styled.div`
   background-image: url(${EmailIcon});
   background-repeat: no-repeat;
 `;
-
 const FeedbackFormSubmitButton = styled.button`
   width: 161px;
   height: 49px;

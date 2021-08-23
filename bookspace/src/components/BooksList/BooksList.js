@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import colors from "../../config/colors";
 import { removeIdFromRoute } from "../../helpers/utilities";
@@ -105,10 +105,6 @@ const ItemDescriptionAuthorText = styled.p`
   color: ${colors.gray};
 `;
 
-BooksList.defaultProps = {
-  books: [],
-};
-
 BooksList.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({
@@ -119,4 +115,8 @@ BooksList.propTypes = {
     })
   ),
   heading: PropTypes.string.isRequired,
+};
+
+BooksList.defaultProps = {
+  books: [],
 };

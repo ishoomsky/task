@@ -5,7 +5,7 @@ import styled from "styled-components";
 import colors from "../../config/colors";
 import * as routes from "../../navigation/routes";
 
-const HeaderNavigation = (props) => {
+const HeaderNavigation = () => {
   const { path } = useRouteMatch();
   return (
     <NavContainer>
