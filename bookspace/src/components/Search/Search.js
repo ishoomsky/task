@@ -37,19 +37,28 @@ class Search extends Component {
     }
     this.setState({ searchValue: inputValue });
   };
+
   handleClick = (id) => {
     const { history } = this.props;
     history.push(`${removeIdFromRoute(routes.BOOK)}${id}`);
-    this.setState({ searchValue: '', searchResult: [], showSearchModal: false });
-  }
-
+    this.setState({
+      searchValue: "",
+      searchResult: [],
+      showSearchModal: false,
+    });
+  };
 
   componentDidMount() {
     console.log("componentDidMount");
   }
 
-  shouldComponentUpdate() {
-    console.log('shouldComponentUpdate');
+  shouldComponentUpdate(_, nextState) {
+    console.log(nextState);
+    
+
+    if (nextState.searchValue === this.state.searchValue) {
+      return false;
+    } ;
     return true;
   }
 
@@ -58,11 +67,11 @@ class Search extends Component {
   }
 
   render() {
-    
+    console.log("search render");
 
-    const items = this.state.searchResult?.map(
+    const items = this.state.searchResult.map(
       ({ title, rating, author, id }) => (
-        <Item onClick={() => this.handleClick(id)}>
+        <Item onClick={() => this.handleClick(id)} key={id}>
           <ItemHeaderContainer>
             <ItemTitleText>{title}</ItemTitleText>
             <ItemRatingContainer>
@@ -85,7 +94,9 @@ class Search extends Component {
           type="text"
           placeholder="Поиск"
           value={this.state.searchValue}
-          onChange={(e) => this.handleSearchInput(e)}
+          onChange={(e) => {
+            this.handleSearchInput(e);
+          }}
         />
         <SearchIcon />
         {this.state.showSearchModal && (
