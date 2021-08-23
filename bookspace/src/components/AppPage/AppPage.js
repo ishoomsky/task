@@ -26,7 +26,7 @@ const PageContainer = styled.div`
   grid-template-areas:
     "header"
     "main";
-  grid-template-rows: 11vh;
+  grid-template-rows: minmax(0, 11vh);
   grid-gap: 3vh;
   background-color: ${colors.body.grayExtraLight};
   font-family: "Roboto";
