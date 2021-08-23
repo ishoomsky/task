@@ -4,7 +4,7 @@ import HeaderContent from "../../components/HeaderContent";
 import SidebarContent from "../../components/SidebarContent";
 import RatedBooksPageContent from "../../components/RatedBooksPageContent";
 
-const HomePage = () => {
+const RatedBooksPage = () => {
   return (
     <AppPage
       headerContent={<HeaderContent />}
@@ -14,4 +14,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default RatedBooksPage;
