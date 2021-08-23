@@ -16,15 +16,15 @@ const HeaderNavigation = () => {
       )}
 
       {routes.RATED === path ? (
-        <ActiveNavItem children={<Link to={routes.RATED}>Книги</Link>} />
+        <ActiveNavItem children={<Link to={routes.RATED}>Рейтинг книг</Link>} />
       ) : (
-        <NavItem children={<Link to={routes.RATED}>Книги</Link>} />
+        <NavItem children={<Link to={routes.RATED}>Рейтинг книг</Link>} />
       )}
 
       {routes.CONTACTS === path ? (
-        <ActiveNavItem children={<Link to={routes.CONTACTS}>Книги</Link>} />
+        <ActiveNavItem children={<Link to={routes.CONTACTS}>Контакты</Link>} />
       ) : (
-        <NavItem children={<Link to={routes.CONTACTS}>Книги</Link>} />
+        <NavItem children={<Link to={routes.CONTACTS}>Контакты</Link>} />
       )}
     </NavContainer>
   );
