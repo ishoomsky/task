@@ -117,4 +117,5 @@ const ArticleContainer = styled.article`
 AppPage.propTypes = {
   headerContent: PropTypes.element.isRequired,
   sidebarContent: PropTypes.element.isRequired,
+  articleContent: PropTypes.element.isRequired,
 };
