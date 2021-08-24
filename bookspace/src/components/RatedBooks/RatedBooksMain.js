@@ -197,7 +197,7 @@ const TableColumnRating = styled.div`
   grid-area: rated-books-row-rating;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
   font-size: 18px;
   padding-bottom: 1em;
   & > p {
