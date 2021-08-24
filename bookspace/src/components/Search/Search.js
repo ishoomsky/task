@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import { withRouter } from "react-router";
 
 import searchIcon from "../../assets/icons/search-icon.svg";
 import colors from "../../config/colors";
@@ -9,112 +9,76 @@ import initData from "../../assets/books.json";
 import { removeIdFromRoute } from "../../helpers/utilities";
 import * as routes from "../../navigation/routes";
 
-class Search extends Component {
-  constructor() {
-    super();
+const Search = () => {
+  const history = useHistory();
+  const [books] = useState(initData);
+  const [showSearchModal, setShowSearchModal] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
 
-    this.books = initData;
-    this.state = {
-      showSearchModal: false,
-      searchValue: "",
-      searchResult: [],
-    };
-  }
-
-  handleSearchInput = (e) => {
+  const handleSearchInput = (e) => {
     const inputValue = e.target.value;
     if (inputValue) {
-      this.setState({ showSearchModal: true });
-
-      const searchResult = this.books.filter((book) =>
+      setShowSearchModal(true);
+      const result = books.filter((book) =>
         book.title.toLocaleLowerCase().includes(inputValue.toLocaleLowerCase())
       );
-      console.log(searchResult);
-      this.setState({ searchResult: searchResult });
+      setSearchResult(result);
     }
     if (inputValue === "") {
-      this.setState({ showSearchModal: false, searchResult: [] });
+      setShowSearchModal(false);
+      setSearchResult([]);
     }
-    this.setState({ searchValue: inputValue });
+    setSearchValue(inputValue);
   };
 
-  handleClick = (id) => {
-    const { history } = this.props;
+  const searchResultRouteTo = (id) => {
     history.push(`${removeIdFromRoute(routes.BOOK)}${id}`);
-    this.setState({
-      searchValue: "",
-      searchResult: [],
-      showSearchModal: false,
-    });
+    setShowSearchModal(false);
+    setSearchValue("");
+    setSearchResult([]);
+
   };
 
-  componentDidMount() {
-    console.log("componentDidMount");
-  }
+  const items = searchResult.map(({ title, rating, author, id }) => (
+    <Item onClick={() => searchResultRouteTo(id)} key={id}>
+      <ItemHeaderContainer>
+        <ItemTitleText>{title}</ItemTitleText>
+        <ItemRatingContainer>
+          <ItemRatingValueText>
+            {rating.toFixed(1).replace(".", ",")}
+          </ItemRatingValueText>
+          <ItemRatingIcon />
+        </ItemRatingContainer>
+      </ItemHeaderContainer>
+      <ItemFooterContainer>
+        <ItemFooterAuthorText>{author}</ItemFooterAuthorText>
+      </ItemFooterContainer>
+    </Item>
+  ));
 
-  shouldComponentUpdate(_, nextState) {
-    console.log(nextState);
-    
-
-    if (nextState.searchValue === this.state.searchValue) {
-      return false;
-    } ;
-    return true;
-  }
-
-  componentWillUnmount() {
-    console.log("componentWillUnmount");
-  }
-
-  render() {
-    console.log("search render");
-
-    const items = this.state.searchResult.map(
-      ({ title, rating, author, id }) => (
-        <Item onClick={() => this.handleClick(id)} key={id}>
-          <ItemHeaderContainer>
-            <ItemTitleText>{title}</ItemTitleText>
-            <ItemRatingContainer>
-              <ItemRatingValueText>
-                {rating.toFixed(1).replace(".", ",")}
-              </ItemRatingValueText>
-              <ItemRatingIcon />
-            </ItemRatingContainer>
-          </ItemHeaderContainer>
-          <ItemFooterContainer>
-            <ItemFooterAuthorText>{author}</ItemFooterAuthorText>
-          </ItemFooterContainer>
-        </Item>
-      )
-    );
-
-    return (
-      <SearchContainer>
-        <SearchInput
-          type="text"
-          placeholder="Поиск"
-          value={this.state.searchValue}
-          onChange={(e) => {
-            this.handleSearchInput(e);
-          }}
-        />
-        <SearchIcon />
-        {this.state.showSearchModal && (
-          <SearchOutput>
-            {this.state.searchResult.length === 0 && (
-              <Message>Ничего не найдено</Message>
-            )}
-            <List>{items}</List>
-          </SearchOutput>
-        )}
-      </SearchContainer>
-    );
-  }
+  return (
+    <SearchContainer>
+      <SearchInput
+        type="text"
+        placeholder="Поиск"
+        value={searchValue}
+        onChange={(e) => {
+          handleSearchInput(e);
+        }}
+      />
+      <SearchIcon />
+      {showSearchModal && (
+        <SearchOutput>
+          {searchResult.length === 0 && <Message>Ничего не найдено</Message>}
+          <List>{items}</List>
+        </SearchOutput>
+      )}
+    </SearchContainer>
+  );
 }
 
-const SearchWithRouter = withRouter(Search);
-
-export default SearchWithRouter;
+export default Search;
 
 const SearchContainer = styled.div`
   width: 468px;
