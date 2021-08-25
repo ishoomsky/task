@@ -1,10 +1,18 @@
-import React from "react";
+// AppPage - is a "skeleton" component.
 import PropTypes from "prop-types";
+import React from "react";
 import styled from "styled-components";
 
 import colors from "../../config/colors";
 
-const AppPage = ({ headerContent, sidebarContent, articleContent }) => {
+interface AppPageProp {
+  headerContent: React.ReactNode;
+  sidebarContent: React.ReactNode;
+  articleContent: React.ReactNode;
+}
+
+const AppPage = (props: AppPageProp) => {
+  const { headerContent, sidebarContent, articleContent } = props;
   return (
     <PageContainer>
       <HeaderContainer>{headerContent}</HeaderContainer>

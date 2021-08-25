@@ -1,10 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import colors from "../../config/colors";
 
-const BookDescription = (props) => {
+interface IBookDescriptionProps {
+  author: string;
+  title: string;
+  description: string;
+  url: string;
+}
+
+const BookDescription: React.FC<IBookDescriptionProps> = (props) => {
   const { author, title, description, url } = props;
   return (
     <Container>
@@ -140,9 +146,9 @@ const BookDescriptionTextParagraph = styled.p`
   }
 `;
 
-BookDescription.propTypes = {
-  author: PropTypes.string.isRequired, 
-  title: PropTypes.string.isRequired, 
-  description: PropTypes.string.isRequired, 
-  url: PropTypes.string.isRequired
-};
+// BookDescription.propTypes = {
+//   author: PropTypes.string.isRequired, 
+//   title: PropTypes.string.isRequired, 
+//   description: PropTypes.string.isRequired, 
+//   url: PropTypes.string.isRequired
+// };

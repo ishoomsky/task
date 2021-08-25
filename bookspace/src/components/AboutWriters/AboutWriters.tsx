@@ -1,10 +1,14 @@
 import styled from "styled-components";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 import colors from "../../config/colors";
 
-const AboutWriters = (props) => {
-  const { articles } = props;
+interface IAboutWritersProps {
+  articles: Array<{ title: string; text: string }>;
+}
+
+const AboutWriters: React.FC<IAboutWritersProps> = (props) => {
+  const { articles = [] } = props;
   const items = articles.map(({ title, text }) => (
     <Item key={title + text}>
       <ItemTitleText>{title}</ItemTitleText>
@@ -62,15 +66,15 @@ const ItemTitleText = styled.span`
   text-decoration: underline;
 `;
 
-AboutWriters.defaultProps = {
-  articles: [],
-};
+// AboutWriters.defaultProps = {
+//   articles: [],
+// };
 
-AboutWriters.propTypes = {
-  articles: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-    })
-  ),
-};
+// AboutWriters.propTypes = {
+//   articles: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       text: PropTypes.string.isRequired,
+//       title: PropTypes.string.isRequired,
+//     })
+//   ),
+// };

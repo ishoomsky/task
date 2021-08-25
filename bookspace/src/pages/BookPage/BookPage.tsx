@@ -1,4 +1,3 @@
-import React from "react";
 import AppPage from "../../components/AppPage";
 import HeaderContent from "../../components/HeaderContent";
 import SidebarContent from "../../components/SidebarContent";

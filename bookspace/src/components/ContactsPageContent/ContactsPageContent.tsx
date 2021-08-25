@@ -8,19 +8,20 @@ const ContactsPageContent = () => {
   const [textInput, setTextInput] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const feedBackFormProps = {
+  const feedBackFormProps =  {
     nameInput, setNameInput,
     emailInput, setEmailInput,
     textInput, setTextInput,
     submitted, setSubmitted
   };
   
-
-  const memoizedFeedbackFormFunc = React.useCallback(
-    <FeedbackFormFunc {...feedBackFormProps} /> ,
-    [nameInput, emailInput, textInput]
+  const memoFeedbackFormFunc = React.useMemo(
+    () => {
+      return <FeedbackFormFunc {...feedBackFormProps} />;
+    }, [feedBackFormProps.nameInput, feedBackFormProps.emailInput, feedBackFormProps.textInput]
   );
-    return memoizedFeedbackFormFunc;
+
+  return memoFeedbackFormFunc;
 };
 
 export default ContactsPageContent;

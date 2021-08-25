@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import GlobalStyle from "./globalStyles";
@@ -9,7 +8,7 @@ import ContactsPage from "./pages/ContactsPage";
 import BookPage from "./pages/BookPage";
 import * as routes from "./navigation/routes";
 
-function App() {
+const App = () => {
   return (
     <>
       <GlobalStyle />

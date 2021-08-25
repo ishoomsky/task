@@ -1,17 +1,16 @@
-import React from "react";
 import AppPage from "../../components/AppPage";
 import HeaderContent from "../../components/HeaderContent";
 import SidebarContent from "../../components/SidebarContent";
-import RatedBooksPageContent from "../../components/RatedBooksPageContent";
+import ContactsPageContent from "../../components/ContactsPageContent";
 
-const RatedBooksPage = () => {
+const ContactsPage = () => {
   return (
     <AppPage
       headerContent={<HeaderContent />}
       sidebarContent={<SidebarContent />}
-      articleContent={<RatedBooksPageContent />}
+      articleContent={<ContactsPageContent />}
     />
   );
 };
 
-export default RatedBooksPage;
+export default ContactsPage;

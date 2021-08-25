@@ -6,13 +6,28 @@ import UserIcon from "../../assets/icons/user-icon.svg";
 
 import colors from "../../config/colors";
 
-const FeedbackFormFunc = (props) => {
-  const { 
-    nameInput, setNameInput, 
-    emailInput, setEmailInput,
-    textInput, setTextInput,
-    submitted, setSubmitted
+interface IFeedbackFormFuncProps {
+  nameInput: string;
+  setNameInput: React.Dispatch<React.SetStateAction<string>>;
+  emailInput: string;
+  setEmailInput: React.Dispatch<React.SetStateAction<string>>;
+  textInput: string;
+  setTextInput: React.Dispatch<React.SetStateAction<string>>;
+  submitted: boolean;
+  setSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
+const FeedbackFormFunc: React.FC<IFeedbackFormFuncProps> = (props) => {
+// const FeedbackFormFunc = (props) => {
+  const {
+    nameInput,
+    setNameInput,
+    emailInput,
+    setEmailInput,
+    textInput,
+    setTextInput,
+    submitted,
+    setSubmitted,
   } = props;
 
   useEffect(() => {
@@ -25,7 +40,8 @@ const FeedbackFormFunc = (props) => {
     return window.innerWidth;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+  // const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(!submitted);
     console.log("click");
@@ -61,7 +77,7 @@ const FeedbackFormFunc = (props) => {
           onChange={(e) => setTextInput(e.target.value)}
           value={textInput}
           placeholder="Оставьте ваш отзыв"
-          rows="7"
+          rows={7}
         />
         <FeedbackFormSubmitButton onClick={handleSubmit}>
           Отправить
