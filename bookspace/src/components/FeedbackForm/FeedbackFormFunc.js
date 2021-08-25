@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import styled from "styled-components";
 import EmailIcon from "../../assets/icons/email-icon.svg";
@@ -14,10 +14,6 @@ const FeedbackFormFunc = (props) => {
     submitted, setSubmitted
 
   } = props;
-
-  // useEffect(() => {
-
-  // }, []);
 
   useEffect(() => {
     window.addEventListener("resize", getWindowWidth);

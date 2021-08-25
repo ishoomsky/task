@@ -1,22 +1,18 @@
-import React, { useState } from "react";
-
-import initData from "../../assets/books.json";
 import RatedBooks from "../RatedBooks";
 import News from "../News";
-import newsInit from "../../assets/news.json";
+import initData from "../../assets/books.json";
+import initNews from "../../assets/news.json";
 
 const SidebarContent = () => {
-  const [books] = useState(initData);
-  const [news] = useState(newsInit);
 
-  const rateBooks = books
+  const rateBooks = initData
     .filter((book) => book.rating >= 4)
     .sort((a, b) => b.rating - a.rating);
 
   return (
     <>
       <RatedBooks books={rateBooks} />
-      <News news={news} />
+      <News news={initNews} />
     </>
   );
 };
