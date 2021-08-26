@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FeedbackFormFunc from "../FeedbackForm";
 
-const ContactsPageContent = () => {
+const ContactsPageContent: React.FC = () => {
   const [nameInput, setNameInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
   const [textInput, setTextInput] = useState("");
@@ -17,6 +17,7 @@ const ContactsPageContent = () => {
   const memoFeedbackFormFunc = React.useMemo(
     () => {
       return <FeedbackFormFunc {...feedBackFormProps} />;
+      // eslint-disable-next-line
     }, [feedBackFormProps.nameInput, feedBackFormProps.emailInput, feedBackFormProps.textInput]
   );
 
