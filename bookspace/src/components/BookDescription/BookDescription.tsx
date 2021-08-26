@@ -1,4 +1,3 @@
-// import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import colors from "../../config/colors";
@@ -145,10 +144,3 @@ const BookDescriptionTextParagraph = styled.p`
     line-height: 2.3rem;
   }
 `;
-
-// BookDescription.propTypes = {
-//   author: PropTypes.string.isRequired, 
-//   title: PropTypes.string.isRequired, 
-//   description: PropTypes.string.isRequired, 
-//   url: PropTypes.string.isRequired
-// };

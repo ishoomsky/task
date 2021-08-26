@@ -1,5 +1,3 @@
-// AppPage - is a "skeleton" component.
-import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 
@@ -11,7 +9,7 @@ interface AppPageProp {
   articleContent: React.ReactNode;
 }
 
-const AppPage = (props: AppPageProp) => {
+const AppPage: React.FC<AppPageProp> = (props) => {
   const { headerContent, sidebarContent, articleContent } = props;
   return (
     <PageContainer>
@@ -121,9 +119,3 @@ const ArticleContainer = styled.article`
   flex-direction: column;
   gap: 32px;
 `;
-
-AppPage.propTypes = {
-  headerContent: PropTypes.element.isRequired,
-  sidebarContent: PropTypes.element.isRequired,
-  articleContent: PropTypes.element.isRequired,
-};

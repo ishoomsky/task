@@ -1,9 +1,10 @@
 import RatedBooks from "../RatedBooks";
 import initData from "../../assets/books.json";
+import IBook from "../../interfaces/IBook";
 
-const RatedBooksPageContent = () => {
+const RatedBooksPageContent: React.FC = () => {
 
-  const sortedBooks = initData.sort((a, b) => b.rating - a.rating);
+  const sortedBooks: Array<IBook> = initData.sort((a, b) => b.rating - a.rating);
 
   return <RatedBooks large books={sortedBooks} />;
 };

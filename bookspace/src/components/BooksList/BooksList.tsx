@@ -1,14 +1,18 @@
-import React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import colors from "../../config/colors";
 import { removeIdFromRoute } from "../../helpers/utilities";
 import * as routes from "../../navigation/routes";
+import IBook from "../../interfaces/IBook";
 
-const BooksList = (props) => {
-  const { heading, books } = props;
+interface BooksListProps {
+  heading: string,
+  books: Array<IBook>
+}
+
+const BooksList: React.FC<BooksListProps> = (props) => {
+  const { heading, books = [] } = props;
 
   const items = books.map(({ id, title, author, url }) => (
     <Item key={`${title}-${author}-${url}`}>
@@ -104,19 +108,3 @@ const ItemDescriptionAuthorText = styled.p`
   text-overflow: ellipsis;
   color: ${colors.gray};
 `;
-
-BooksList.propTypes = {
-  books: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      rating: PropTypes.number.isRequired,
-      author: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-    })
-  ),
-  heading: PropTypes.string.isRequired,
-};
-
-BooksList.defaultProps = {
-  books: [],
-};

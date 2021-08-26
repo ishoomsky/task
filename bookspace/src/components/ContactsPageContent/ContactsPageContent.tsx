@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-// import FeedbackFormClass from "../FeedbackForm/FeedbackFormClass";
-import FeedbackFormFunc from "../FeedbackForm/FeedbackFormFunc";
+import FeedbackFormFunc from "../FeedbackForm";
 
 const ContactsPageContent = () => {
   const [nameInput, setNameInput] = useState("");

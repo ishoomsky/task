@@ -1,11 +1,15 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import colors from "../../config/colors";
 import UserIconWhite from "../../assets/icons/user-icon-white.svg";
+import IReview from "../../interfaces/IReview";
 
-const BookReviewsList = (props) => {
+interface BookReviewsListProps {
+  reviews: Array<IReview>;
+}
+
+const BookReviewsList: React.FC <BookReviewsListProps> = (props) => {
   const { reviews } = props;
   const items = reviews.map(({ author, review }) => (
     <BookReviewsItem key={author + review}>
@@ -70,12 +74,3 @@ const BookReviewsItemText = styled.p`
   background-color: ${colors.white};
   padding: 17px;
 `;
-
-BookReviewsList.propTypes = {
-  reviews: PropTypes.arrayOf(
-    PropTypes.shape({
-      author: PropTypes.string,
-      text: PropTypes.string,
-    })
-  ),
-};

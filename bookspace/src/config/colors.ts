@@ -1,4 +1,4 @@
-const colors = {
+const colors: any = {
   white: "rgba(255, 255, 255, 1)",
   gray: "rgba(18, 18, 18, 0.68)",
   grayExtraLight: "rgba(249, 249, 249, 1)",

@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import PropTypes from "prop-types";
 
 import colors from "../../config/colors";
 import StarIconFill from "../../assets/icons/star-fill.svg";
 import StarIconHalf from "../../assets/icons/star-half.svg";
 import StarIconOutlined from "../../assets/icons/star.svg";
+import IBook from "../../interfaces/IBook";
 
-const calcStars = (rating) => {
-  let result = [];
+const calcStars = (rating:number): Array<JSX.Element>  => {
+  let result: Array<JSX.Element> = [];
   [...Array(5)].forEach((_, index) => {
     if (rating >= index + 1) result.push(<IconFill key={index} />);
     if (rating < index + 1 && rating > index)
@@ -18,8 +18,12 @@ const calcStars = (rating) => {
   return result;
 };
 
-const RatedBooksMain = (props) => {
-  const { books } = props;
+interface RatedBooksMainProps {
+  books: Array<IBook>
+}
+
+const RatedBooksMain: React.FC<RatedBooksMainProps> = (props) => {
+  const { books = [] } = props;
 
   const rows = books.map(({ id, title, author, url, year, rating }) => (
     <TableRowContainer key={id}>
@@ -245,18 +249,3 @@ const IconHalf = styled.div`
     height: 14px;
   }
 `;
-
-RatedBooksMain.propTypes = {
-  books: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      rating: PropTypes.number,
-      author: PropTypes.string,
-      url: PropTypes.string,
-    })
-  ),
-};
-
-RatedBooksMain.defaultProps = {
-  books: [],
-};

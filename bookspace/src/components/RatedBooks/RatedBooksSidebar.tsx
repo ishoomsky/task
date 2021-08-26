@@ -1,14 +1,18 @@
 import styled from "styled-components";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import colors from "../../config/colors";
 import { removeIdFromRoute } from "../../helpers/utilities";
 import * as routes from "../../navigation/routes";
 import StarIcon from "../../assets/icons/star-fill.svg";
+import IBook from "../../interfaces/IBook";
 
-const RatedBooksSmall = (props) => {
-  const { books } = props;
+interface RatedBooksSmallProps {
+  books: Array<IBook>;
+}
+
+const RatedBooksSmall: React.FC<RatedBooksSmallProps> = (props) => {
+  const { books = [] } = props;
 
   const sortedItems = books.sort((a, b) => b.rating - a.rating);
   const items = sortedItems.map(({ title, rating, author, id }) => (
@@ -117,18 +121,3 @@ const ItemFooterAuthorText = styled.span`
   font-size: 1.2rem;
   color: ${colors.gray};
 `;
-
-RatedBooksSmall.propTypes = {
-  books: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      rating: PropTypes.number,
-      author: PropTypes.string,
-      url: PropTypes.string,
-    })
-  ),
-};
-
-RatedBooksSmall.defaultProps = {
-  books: [],
-};

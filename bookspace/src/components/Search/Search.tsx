@@ -5,24 +5,24 @@ import styled from "styled-components";
 import searchIcon from "../../assets/icons/search-icon.svg";
 import colors from "../../config/colors";
 import StarIcon from "../../assets/icons/star-fill.svg";
-import initData from "../../assets/books.json";
+import initBooks from "../../assets/books.json";
 import { removeIdFromRoute } from "../../helpers/utilities";
 import * as routes from "../../navigation/routes";
+import IBook from "../../interfaces/IBook";
 
-const Search = () => {
+const Search: React.FC = () => {
   const history = useHistory();
-  const [books] = useState(initData);
-  const [showSearchModal, setShowSearchModal] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
-  const [searchResult, setSearchResult] = useState([]);
+  const [showSearchModal, setShowSearchModal] = useState<boolean>(false);
+  const [searchValue, setSearchValue] = useState<string>("");
+  const [searchResult, setSearchResult] = useState<Array<IBook>>([]);
 
-  const handleSearchInput = (e) => {
-    const inputValue = e.target.value;
+  const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue:string = e.target.value;
     if (inputValue) {
       setShowSearchModal(true);
-      const result = books.filter((book) =>
+      const result = initBooks.filter((book) =>
         book.title.toLocaleLowerCase().includes(inputValue.toLocaleLowerCase())
-      );
+      ) as Array<IBook>;
       setSearchResult(result);
     }
     if (inputValue === "") {
@@ -32,12 +32,11 @@ const Search = () => {
     setSearchValue(inputValue);
   };
 
-  const searchResultRouteTo = (id) => {
+  const searchResultRouteTo = (id: string) => {
     history.push(`${removeIdFromRoute(routes.BOOK)}${id}`);
     setShowSearchModal(false);
     setSearchValue("");
     setSearchResult([]);
-
   };
 
   const items = searchResult.map(({ title, rating, author, id }) => (
@@ -63,7 +62,7 @@ const Search = () => {
         type="text"
         placeholder="Поиск"
         value={searchValue}
-        onChange={(e) => {
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           handleSearchInput(e);
         }}
       />

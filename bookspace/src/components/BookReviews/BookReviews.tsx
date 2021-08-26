@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import BookReviewsList from "./BookReviewsList";
 
 import colors from "../../config/colors";
 import UserIcon from "../../assets/icons/user-icon.svg";
+import IReview from "../../interfaces/IReview";
 
-const BookReviews = (props) => {
-  const { reviews } = props;
+interface BookReviewsProps {
+  reviews: Array<IReview>;
+}
+
+const BookReviews: React.FC<BookReviewsProps> = (props) => {
+  const { reviews = [] } = props;
 
   const [authorInput, setNameInput] = useState("");
   const [reviewTextarea, setReviewTextarea] = useState("");
@@ -33,7 +37,7 @@ const BookReviews = (props) => {
         </FeedbackFormInputContainer>
         <FeedbackFormTextArea
           placeholder="Оставьте ваш отзыв"
-          rows="7"
+          rows={7}
           value={reviewTextarea}
           onChange={(e) => setReviewTextarea(e.currentTarget.value)}
         />
@@ -140,14 +144,3 @@ const FeedbackFormSubmitButton = styled.button`
     align-self: center;
   }
 `;
-
-BookReviews.propTypes = {
-  reviews: PropTypes.arrayOf(PropTypes.shape({
-    author: PropTypes.string,
-    review: PropTypes.string,
-  })),
-}
-
-BookReviews.defaultProps = {
-  reviews: [],
-}

@@ -6,54 +6,48 @@ import UserIcon from "../../assets/icons/user-icon.svg";
 
 import colors from "../../config/colors";
 
-export default class FeedbackFormClass extends Component {
-  constructor() {
-    super();
-    this.state = {
-      nameInput: "",
-      emailInput: "",
-      textInput: "",
-      submitted: null,
-    };
-  }
+interface IFeedbackFormClassProps {
+  nameInput: string;
+  setNameInput: React.Dispatch<React.SetStateAction<string>>;
+  emailInput: string;
+  setEmailInput: React.Dispatch<React.SetStateAction<string>>;
+  textInput: string;
+  setTextInput: React.Dispatch<React.SetStateAction<string>>;
+  submitted: boolean;
+  setSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
+export default class FeedbackFormClass extends Component<IFeedbackFormClassProps> {
   getWindowWidth = () => {
     console.log(window.innerWidth);
     return window.innerWidth;
   };
 
-  shouldComponentUpdate(_, nextState) {
-    const { nameInput: prevNameInput, emailInput: prevEmailInput, textInput: prevTextInput } = nextState;
-    const { nameInput, emailInput, textInput } = this.state;
-    if (prevNameInput === nameInput && prevEmailInput === emailInput && prevTextInput === textInput) {
+  shouldComponentUpdate(nextProps: IFeedbackFormClassProps) {
+    const {
+      nameInput: nextNameInput,
+      emailInput: nextEmailInput,
+      textInput: nextTextInput,
+    } = nextProps;
+    const { nameInput, emailInput, textInput } = this.props;
+    if (
+      nextNameInput === nameInput &&
+      nextEmailInput === emailInput &&
+      nextTextInput === textInput
+    ) {
       return false;
     }
 
     return true;
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     window.addEventListener("resize", this.getWindowWidth);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     window.removeEventListener("resize", this.getWindowWidth);
   }
-
-  handleNameInput = (e) => {
-    this.setState({ nameInput: e.target.value });
-  };
-  handleEmailInput = (e) => {
-    this.setState({ emailInput: e.target.value });
-  };
-  handleTextInput = (e) => {
-    this.setState({ textInput: e.target.value });
-  };
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.setState({ submitted: true });
-  };
 
   render() {
     return (
@@ -66,8 +60,8 @@ export default class FeedbackFormClass extends Component {
           <FeedbackFormInputContainer>
             <IconName />
             <FeedbackFormInput
-              onChange={(e) => this.handleNameInput(e)}
-              value={this.state.nameInput}
+              onChange={(e) => this.props.setNameInput(e.target.value)}
+              value={this.props.nameInput}
               placeholder="Ваше имя"
               type="text"
             />
@@ -75,19 +69,19 @@ export default class FeedbackFormClass extends Component {
           <FeedbackFormInputContainer>
             <IconEmail />
             <FeedbackFormInput
-              onChange={(e) => this.handleEmailInput(e)}
-              value={this.state.emailInput}
+              onChange={(e) => this.props.setEmailInput(e.target.value)}
+              value={this.props.emailInput}
               placeholder="Ваш Email"
               type="text"
             />
           </FeedbackFormInputContainer>
           <FeedbackFormTextArea
-            onChange={(e) => this.handleTextInput(e)}
-            value={this.state.textInput}
+            onChange={(e) => this.props.setTextInput(e.target.value)}
+            value={this.props.textInput}
             placeholder="Оставьте ваш отзыв"
-            rows="7"
+            rows={7}
           />
-          <FeedbackFormSubmitButton onClick={(e) => this.handleSubmit(e)}>
+          <FeedbackFormSubmitButton onClick={() => this.props.setSubmitted(true)}>
             Отправить
           </FeedbackFormSubmitButton>
         </FeedbackFormContainer>

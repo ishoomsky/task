@@ -4,7 +4,7 @@ import HeaderNavigation from "../HeaderNavigation";
 import Search from "../Search";
 import bookSpaceLogo from "../../assets/logo/book-space-logo.svg";
 
-const HeaderContent = () => {
+const HeaderContent: React.FC = () => {
   return (
     <Container>
       <Logo />

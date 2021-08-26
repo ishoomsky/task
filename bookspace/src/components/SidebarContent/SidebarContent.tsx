@@ -3,7 +3,7 @@ import News from "../News";
 import initData from "../../assets/books.json";
 import initNews from "../../assets/news.json";
 
-const SidebarContent = () => {
+const SidebarContent: React.FC = () => {
 
   const rateBooks = initData
     .filter((book) => book.rating >= 4)

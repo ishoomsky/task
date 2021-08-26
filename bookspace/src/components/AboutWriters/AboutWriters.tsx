@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// import PropTypes from "prop-types";
 
 import colors from "../../config/colors";
 
@@ -65,16 +64,3 @@ const Item = styled.li`
 const ItemTitleText = styled.span`
   text-decoration: underline;
 `;
-
-// AboutWriters.defaultProps = {
-//   articles: [],
-// };
-
-// AboutWriters.propTypes = {
-//   articles: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       text: PropTypes.string.isRequired,
-//       title: PropTypes.string.isRequired,
-//     })
-//   ),
-// };

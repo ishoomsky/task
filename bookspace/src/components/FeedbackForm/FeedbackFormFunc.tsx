@@ -18,7 +18,6 @@ interface IFeedbackFormFuncProps {
 };
 
 const FeedbackFormFunc: React.FC<IFeedbackFormFuncProps> = (props) => {
-// const FeedbackFormFunc = (props) => {
   const {
     nameInput,
     setNameInput,
@@ -41,7 +40,6 @@ const FeedbackFormFunc: React.FC<IFeedbackFormFuncProps> = (props) => {
   };
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
-  // const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(!submitted);
     console.log("click");

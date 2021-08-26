@@ -1,10 +1,14 @@
 import styled from "styled-components";
-import PropTypes from "prop-types";
 
 import colors from "../../config/colors";
+import INew from "../../interfaces/INew";
 
-const News = (props) => {
-  const { news } = props;
+interface NewsProps {
+  news: Array<INew>;
+}
+
+const News: React.FC<NewsProps> = (props) => {
+  const { news = [] } = props;
   const newsList = news.map(({ date, title }) => (
     <Item key={date + title}>
       <ItemDateText>{date}</ItemDateText>
@@ -60,16 +64,3 @@ const ItemTitleText = styled.span`
   line-height: 1.6rem;
   color: ${colors.grayDark};
 `;
-
-News.propTypes = {
-  news: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      date: PropTypes.string.isRequired,
-    })
-  ),
-};
-
-News.defaultProps = {
-  news: [],
-};
